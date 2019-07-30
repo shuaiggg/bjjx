@@ -1,0 +1,19 @@
+<view class="comment-viewst">
+    <block wx:for="{{listdata}}" wx:key="{{index}}">
+      <view class="comment-item">
+        <view class="comment-avatar">
+          <image mode='widthFix' src="{{item.header_img}}"></image>
+        </view>
+        <view class="comment-top">
+          <view class="comment-name">{{item.nickName}}<view wx:if="{{item.is_good === 1}}" class="concentration">精选</view></view>
+          <view class="comment-content">{{item.content}}</view>
+        </view>
+        <view class="comment-body">
+          <view wx:for="{{item.children}}" wx:for-index="ind" wx:for-item="ite" wx:key="ind" class="replay-item">
+            <view class='administrators'>{{ite.nickName}}:</view>{{ite.content}}
+          </view>
+        </view>
+        <view class="comment-footer">{{item.create_time}}</view>
+      </view>
+    </block>
+	</view>

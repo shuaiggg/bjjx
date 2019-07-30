@@ -1,0 +1,31 @@
+<live-pusher class="live-pusher"
+             url="{{streamName}}"
+             mode="RTC"
+             autopush
+             muted="{{!status.audioOn}}"
+             enable-camera="{{status.videoOn}}"
+             auto-focus="{{autoFocus}}"
+             orientation="{{orientation}}"
+             beauty="{{beauty}}"
+             whiteness="{{whiteness}}"
+             aspect="3:4"
+             min-bitrate="{{minBitrate}}"
+             max-bitrate="{{maxBitrate}}"
+             waiting-image="{{waitingImage}}"
+             waiting-image-hash="{{waitingImageHash}}"
+             background-mute="{{backgroundMute}}"
+             bindnetstatus="onNetStatus"
+             binderror="onError"
+             bindstatechange="onStateChange">
+    <cover-view class="cover-image">
+        <cover-image hidden="{{status.videoOn}}"
+                     src="/sdk/component/publisher/image/cameraClose.png">
+        </cover-image>
+        <cover-view class="player-cover" bindtap="onTap">
+        </cover-view>
+        <cover-view class="player-name"
+                    style="color: {{styleInfo.color}}px;font-size:{{styleInfo.fontSize}}px">
+            {{name}}
+        </cover-view>
+    </cover-view>
+</live-pusher>

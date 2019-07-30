@@ -1,0 +1,1 @@
+var lpad=require("./lpad"),simplifyTime=require("./simplifyTime");module.exports=function(i,e,r){if(i=simplifyTime(i)){var p=[lpad(i.hour),lpad(i.minute)];return e&&p.push(lpad(i.second)),p.join(r||":")}return""};

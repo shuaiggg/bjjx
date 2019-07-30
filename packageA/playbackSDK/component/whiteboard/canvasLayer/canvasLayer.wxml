@@ -1,0 +1,7 @@
+<!--common/component/whiteboard/canvasLayer/canvasLayer.wxml-->
+<view class="doc-canvas" style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px">
+  <canvas hidden="{{styleInfo.isHide}}" canvas-id='doc-canvas' disable-scroll="{{true}}" style="width: {{showCanvas ? pageInfo.width : 0}}px;height:{{showCanvas ? pageInfo.height : 0}}px">
+  </canvas>
+  <cover-view class="laser" hidden="{{!showLaser}}" style="left: {{laserStyle.left}}px;top:{{laserStyle.top}}px">
+  </cover-view>
+</view>

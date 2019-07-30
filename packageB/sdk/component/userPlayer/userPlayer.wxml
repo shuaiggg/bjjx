@@ -1,0 +1,12 @@
+<view class="user-player-wrapper" style="width: {{styleInfo.wrapWidth}}px">
+    <view  wx:for="{{userList}}" wx:key="id" class='player-wrapper'
+           style="display: {{direction == 'row' ? 'inline-block':'block'}};width:{{size.width}}px;height:{{size.height}}px;margin-right:{{(index+1)==userList.length?0:size.gap}}px">
+        <player user-info="{{item}}"
+                styleInfo="{{styleInfo}}"
+                bind:playerTap="onPlayerTap"
+                bind:isSupportedChanged="onSupportedChanged"
+                bind:AVStatusChange='onPlayerAVStatusChange'
+        >
+        </player>
+    </view>
+</view>

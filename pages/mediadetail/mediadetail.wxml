@@ -1,0 +1,24 @@
+<view class="page">
+  <header id="header" title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view class='front-cover'>
+      <image class='front-cover-img' mode="widthFix" src="{{baseUrl}}{{playImg}}"></image>
+  </view>
+  <view class="page__bd">
+    <scroll-view scroll-y class='course-introduction'>
+      <view class="weui-article">
+            <view class="weui-article__h1">{{title}}</view>
+            <view class="weui-article__section">
+                <image class='question' mode="widthFix" src="{{baseUrl}}{{aboutImg}}"></image>
+            </view>
+        </view>
+    </scroll-view>
+  </view>
+  <!-- 底部按钮  -->
+  <view class="weui-flex pay-box">
+    <form wx:if="{{liveStatus == 'future'}}" class="weui-flex__item pay-btn form-id" report-submit="true" bindsubmit="formSubmit">
+      <button hover-class='none' formType="submit">{{reserve == 'reserve' ? '取消预约' : '立即预约'}}</button>
+    </form>
+    <button wx:elif="{{hasPhoneNumber == ''}}" hover-class='none' class="weui-flex__item pay-btn" style='background:#f79649;' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{liveStatus == 'liveing' ? '立即观看' : '观看回放'}}</button>
+      <view wx:else class="weui-flex__item pay-btn" style='background:#f79649;' bindtap='goPlay'>{{liveStatus == 'liveing' ? '立即观看' : '观看回放'}}</view>        
+  </view>
+</view>

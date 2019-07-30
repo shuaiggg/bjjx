@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "whiteboard": "../../playbackSDK/component/whiteboard/whiteboard",
+    "messageList": "../../playbackSDK/component/messageList/messageList",
+    "loading": "../../playbackSDK/component/loading/loading",
+    "header": "/pages/components/header/header"
+  },
+  "disableScroll": true
+}

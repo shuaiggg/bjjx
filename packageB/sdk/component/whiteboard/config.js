@@ -1,0 +1,1 @@
+var config=require("../../config");exports.DOC_IMAGE_LOAD_TIMEOUT=5*config.SECOND,exports.DOC_IMAGE_PRELOAD_COUNT=7,exports.DOC_IMAGE_WIDTH=750,exports.DOC_IMAGE_HEIGHT=562,exports.TOUCH_DISTANCE=40,exports.TOUCH_TIME=15;

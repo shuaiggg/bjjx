@@ -1,0 +1,92 @@
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header> 
+  <view class="page__bd">
+    <view class="tou-tu">
+      <image mode='widthFix' src='https://wx.jianxuejy.net/static/icon/christmas/cs_01.jpg'></image>
+    </view>
+    <view class="assist-foot">
+      <view class="assist-inner">
+        <view class='lead'>
+          <image mode='widthFix' src="{{shareInfo.headImage}}"></image>{{shareInfo.nickName}} 
+        </view>
+
+        <view class='friend-box'>
+          <view wx:if="{{activityItem === 'shengdan2'}}" class='friend-text'>我正在解锁圣诞奇遇第二层抽奖机会，快来帮我助力！</view>
+          <view wx:else class='friend-text'>我正在解锁圣诞奇遇第顶层抽奖机会，快来帮我助力！</view>
+
+          <view wx:if="{{assisting.length === 3}}" class='friend-item'>
+            <block wx:for="{{assisting}}" wx:key="{{index}}">
+              <view class="empty">
+                <image mode='widthFix' src='{{item.headImage}}'></image>
+              </view>
+            </block>
+          </view>
+          <view wx:elif="{{assisting.length > 3}}" class='friend-item'>
+            <block wx:for="{{part1}}" wx:key="{{index}}">
+              <view class="empty">
+                <image mode='widthFix' src='{{item.headImage}}'></image>
+              </view>
+            </block>
+          </view>
+          <view wx:elif="{{assisting.length === 2}}" class='friend-item'>
+            <block wx:for="{{assisting}}" wx:key="{{index}}">
+              <view class="empty">
+                <image mode='widthFix' src='{{item.headImage}}'></image>
+              </view>
+            </block>
+            <view class='empty'>?</view>
+          </view>
+          <view wx:elif="{{assisting.length === 1}}" class='friend-item'>
+            <block wx:for="{{assisting}}" wx:key="{{index}}">
+              <view class="empty">
+                <image mode='widthFix' src='{{item.headImage}}'></image>
+              </view>
+            </block>
+            <view class='empty'>?</view>
+            <view class='empty'>?</view>
+          </view>          
+          <view wx:else class='friend-item'>
+            <view class='empty'>?</view>
+            <view class='empty'>?</view>
+            <view class='empty'>?</view>
+          </view>
+
+          
+          <!-- 是否是第三关 -->
+          <view wx:if="{{activityItem === 'shengdan3' && assisting.length === 4}}" class='friend-item'>
+            <block wx:for="{{part2}}" wx:key="{{index}}">
+              <view class="empty">
+                <image mode='widthFix' src='{{item.headImage}}'></image>
+              </view>
+            </block>
+            <view class='empty'>?</view>
+          </view>
+          <view wx:elif="{{activityItem === 'shengdan3' && assisting.length === 5}}" class='friend-item'>
+            <block wx:for="{{part2}}" wx:key="{{index}}">
+              <view class="empty">
+                <image mode='widthFix' src='{{item.headImage}}'></image>
+              </view>
+            </block>
+          </view>
+          <view wx:elif="{{activityItem === 'shengdan3'}}" class='friend-item'>
+            <view class="empty">?</view>
+            <view class="empty">?</view>
+          </view>
+
+          <view wx:if="{{activityItem === 'shengdan3' && assisting.length < 5}}" class='friend-text'>还剩{{5 - assisting.length}}人即可再次抽奖</view>
+          <view wx:elif="{{activityItem != 'shengdan3' && assisting.length < 3}}" class='friend-text'>还剩{{3 - assisting.length}}人即可再次抽奖</view>
+          <view wx:else class='friend-text'></view>
+        </view>
+        
+        <button wx:if="{{isMe === 0 && havePhone === 0 && finished === 0}}" hover-class='none' class="unlock" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即助力</button> 
+        <button wx:elif="{{isMe === 0 && helped === 0 && havePhone === 1 && finished === 0}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='unlock share-friend'>立即助力</button>
+        <button wx:elif="{{isMe === 0 && helped === 1}}" class='unlock helped'>已经助力</button> 
+        <navigator url="../themeActivity/themeActivity" wx:elif="{{isMe === 1 && finished === 1}}" class='unlock share-friend'>再次抽奖</navigator>
+        <button wx:elif="{{isMe === 1 && finished === 0}}" open-type='share' class='unlock' hover-class='none'>邀请好友助力解锁</button>
+        <button wx:else class='unlock' hover-class='none'>助力完成</button>
+        <!-- 悬浮按钮 -->
+        <view wx:if="{{!header.iconShow}}" class="go-home" bindtap='goHome'>返回首页</view>
+      </view>
+    </view>
+  </view>
+</view>

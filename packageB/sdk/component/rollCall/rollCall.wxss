@@ -1,0 +1,19 @@
+/* sdk/component/rollCall/rollCall.wxss */
+
+.roll-call-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.roll-call-content {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.roll-call-duration {
+  display: inline-block;
+  padding: 0 5px;
+  font-size: 22px;
+  color: #17b5ff;
+}

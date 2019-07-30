@@ -1,0 +1,33 @@
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view class="page__bd">
+    <!-- 轮播图 -->
+    <view class='swiper-box'>
+      <swiper id="swiper" circular autoplay indicator-dots indicator-active-color="#f26e1b">
+        <block wx:for="{{welfare}}" wx:key="{{index}}">
+          <swiper-item>
+              <!-- 遍历卡片 -->
+                <view class='welfare-box'>
+                <view class="welfare-wrapper shadow-class">
+                  <view class="welfare-card">
+                    <view class='welfare-box-img' style="height: {{imageHeight}}px">
+                      <image bindload='imageLoad' mode='widthFix' src="{{baseUrl}}{{item.img}}"></image>
+                      <view class='welfare-num'>{{item.num}}人已参与</view>
+                      <view class='welfare-state'>
+                        <image src="{{baseUrl}}/static/icon/ui/{{item.status === 'end' ? 'finished' : 'processing'}}.png"></image>
+                      </view>
+                    </view>
+                    <view class='welfare-box-content' style="height: calc(100% - {{imageHeight}}px);">
+                      <view class='welfare-title'>{{item.title}}</view>
+                      <scroll-view class='welfare-scroll' scroll-y>{{item.content}}</scroll-view>
+                      <view bindtap='goDetail' data-jumpto="{{item.jumpto}}" class='welfare-button'>{{item.buttonText}}</view>
+                    </view>
+                  </view>
+                </view>
+                </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>

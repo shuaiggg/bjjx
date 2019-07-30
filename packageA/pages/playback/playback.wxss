@@ -1,0 +1,170 @@
+/* demo/playback/playback.wxss */
+/* pages/playback/playback.wxss */
+
+.bjy-playback-view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#mainVideo {
+  width: 100%;
+}
+
+.video-minify {
+  width: 0;
+  height: 0;
+}
+
+.video-controller {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 8rpx;
+  font-size: 14px;
+  background-color: #000;
+  color: #fff;
+}
+
+.rate-controller, .resolution-controller {
+  flex: 1;
+  text-align: center;
+}
+.tab-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.tab-header {
+  display: flex;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 5rpx 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.tab-btn-active {
+  border-bottom: 1px solid #3ca2f1;
+  color: #3ca2f1;
+}
+
+.tab-content {
+  position: relative;
+  flex: 1;
+  transition: transform 0.5s;
+}
+
+.tab-content-message {
+  transform: translateX(0);
+}
+
+.tab-content-whiteboard {
+  transform: translateX(-100%);
+}
+
+/* 
+ * hack:
+ * 白板canvas有bug，transform时不会立即销毁,此处直接将其移除屏幕
+ */
+
+.tab-content-message > .whiteboard {
+  top: 100%;
+}
+
+/* 
+ * hack:
+ * 白板canvas有bug，点击canvas会出现横向滚动，此处将聊天宽度设为0
+ */
+
+.tab-content-message > .whiteboard {
+  width: 0;
+}
+
+.whiteboard {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.message-list-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.fullscreen-btn {
+  position: absolute;
+  bottom: 20rpx;
+  left: 200%;
+  padding: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 11;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-150%);
+}
+
+.whiteboard-fullscreen-view #mainVideo {
+  width: 0;
+  height: 0;
+}
+
+.whiteboard-fullscreen-view .tab-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.offline-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  text-align: center;
+  line-height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
+.loading-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: #fff;
+}
+
+.rotate-screen{
+  transform: rotate(90deg) scale(1.5);
+  -webkit-transform: rotate(90deg) scale(1.5);
+}

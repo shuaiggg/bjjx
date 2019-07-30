@@ -1,0 +1,34 @@
+/* pages/themeActivity/themeActivity.wxss */
+.giving-box{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.giving-box image{
+  display: block;
+  width: 100%;
+}
+.giving-phone, .giving-href {
+  position: absolute;
+  right: 9%;
+  bottom: 7%;
+  width: 34%;
+  height: 80rpx;
+  background: green;
+  opacity: 0;
+}
+.my-naviga-text{
+  width: 36%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.people-num{
+  position: absolute;
+  left: 8vh;
+  bottom: 2.3vh;
+  color: #fff;
+  font-size: 24rpx;
+  opacity: 0.8
+}

@@ -1,0 +1,64 @@
+<!--pages/teacherPlayer/teacherPlayer.wxml-->
+<view hidden="{{whiteboardFull}}">
+  <header 
+    id="header" 
+    title="{{header.title}}" 
+    isShow="{{header.iconShow}}" 
+    isPlaceholder="{{header.isPlaceholder}}">
+  </header>
+</view>
+
+<view class="whiteboard-wrap {{whiteboardFull ? 'whiteboard-wrap-full' : ''}}">
+  <view class="{{whiteboardFull ? 'whiteboard-rotate' : ''}}">
+    <whiteboard 
+      id="whiteboard" 
+      class="{{whiteboardClass}}"
+      hidePageCount="{{hidePageCount}}"
+      showClear="{{showClear}}"
+      styleInfo="{{styleInfo}}"
+      size="{{size}}"
+      drawing="{{drawing}}"
+      bind:whiteboardTap="onWhiteboardTap">
+    </whiteboard>
+  </view>
+
+  <view 
+    class="player" 
+    style="width: {{teacherSize.width}}px;height: {{teacherSize.height}}px;bottom: -{{teacherSize.height}}px" 
+    hidden="{{hidePlayer || whiteboardFull}}">
+      <teacherPlayer
+        fullScreen="{{fullScreen}}"
+        bind:teacherPlayerTap ="onPlayerTap"
+        bind:isSupportedChanged="onTeacherPlayerSupportedChanged"
+        bind:AVStatusChange='onTeacherPlayerAVStatusChange'>
+      </teacherPlayer>
+  </view>
+</view>
+
+<!-- 消息列表 -->
+<scroll-view 
+  hidden="{{whiteboardFull}}"
+  class="message-list" 
+  scroll-y 
+  scroll-top="{{scrollTop}}"
+  style="height: {{messagesHeight}}px">
+  <messageList 
+    bind:addMessage="onAddMessage"
+    historySize="{{historySize}}"
+    maxCount="{{maxCount}}">
+  </messageList>
+</scroll-view>
+
+<!-- 消息发送 -->
+<view class="send-message" hidden="{{whiteboardFull}}">
+  <messageSender  
+    placeholder="{{placeholder}}"
+    messageMaxLength="{{messageMaxLength}}"
+    bind:heightChange="onHeightChange"
+    bind:sendMessage="onSendMessage"
+    focus="{{focus}}">
+  </messageSender>
+</view>
+
+
+

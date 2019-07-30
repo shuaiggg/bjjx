@@ -1,0 +1,1 @@
+exports.LABEL_SHOW_MINE_ONLY="只看我",exports.LABEL_FORBIDDEN="已被老师禁止提问",exports.INPUT_FIELD_PLACEHOLDER="问点啥吧~",exports.ERROR_TOO_LONG="请不要输入太长的内容哦",exports.ERROR_TOO_FREQUENT="您发送内容过于频繁,休息一下吧",exports.INFO_SEND_SUCCESS="发送成功",exports.QUESTION_EMPTY="还没有人提问哦~",exports.INFO_TEACHER_ANSWER_YOU="老师回答了你的问题哦~",exports.INFO_QUESTION_SEND_SUCCESS="问题发送成功";

@@ -1,0 +1,17 @@
+<header id="header" title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+<view>
+  <form bindsubmit="formSubmit" class='form' wx:if="{{!result}}">
+    <textarea placeholder="请输入您宝贵的意见" auto-focus='{{true}}' name="textarea" />
+    <input type="number" placeholder="手机号码：(选填)" class='phone' name="phone" />
+    <button form-type="submit" class='tj'> 提交 </button>
+  </form>
+ 
+  <view wx:if="{{result}}" class="res-box">
+    <view class="weui-article" style='text-align:center'>
+      <icon type="success" size="80" color="#e86e21" />
+      <view style='font-size:38rpx;margin:20rpx 0;'>反馈成功</view>
+      <view style='font-size:30rpx;color:#5e5e5e;'>已经收到您的反馈，我们将努力改正</view>
+    </view>
+  </view>
+
+</view>

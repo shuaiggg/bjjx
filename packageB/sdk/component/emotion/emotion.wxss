@@ -1,0 +1,7 @@
+/* common/component/emotion/emotion.wxss */
+.bjy-emotion-wrapper {
+}
+.bjy-emotion-row {
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,40 @@
+<!--common/component/whiteboard/canvasLayer/canvasLayer.wxml-->
+<view class="doc-canvas"
+      style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px">
+    <canvas hidden="{{styleInfo.isHide}}" wx:if="{{canDraw}}" canvas-id='doc-canvas'
+            class="canvas"
+            disable-scroll="true"
+            style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px"
+            bindtouchstart="onCanvasTouchStart"
+            bindtouchmove="onCanvasTouchMove"
+            bindtouchend="onCanvasTouchEnd"
+    >
+        <template is="opt"
+                  data="{{pageCount: pageCount,drawing: drawing,showClear:showClear,showPageCount:showPageCount,finished: finished,styleInfo: styleInfo}}"/>
+    </canvas>
+    <canvas hidden="{{styleInfo.isHide}}" wx:else canvas-id='doc-canvas'
+            disable-scroll="true"
+            style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px">
+    </canvas>
+    <cover-view class="laser"
+                hidden="{{!showLaser}}"
+                style="left: {{laserStyle.left}}px;top:{{laserStyle.top}}px">
+    </cover-view>
+</view>
+
+<template name="opt">
+
+    <cover-view class="whiteboard-mask" hidden="{{drawing}}"
+                bindtap="onMaskTap">
+    </cover-view>
+    <cover-view class="page-count-wrapper">
+        <cover-view bindtap="onPageCountTap"
+                    hidden="{{!showPageCount || (!finished)}}"
+                    class="page-count"
+                    style="color: {{styleInfo.pageCountColor}};background:{{styleInfo.pageCountBackground}}">
+            <cover-view class="empty"></cover-view>
+            {{pageCount}}
+            <cover-view class="empty"></cover-view>
+        </cover-view>
+    </cover-view>
+</template>

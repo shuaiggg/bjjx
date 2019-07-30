@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "header": "../components/header/header",
+    "column": "../components/column/column",
+    "comlist": "../components/comlist/comlist",
+    "wux-animation-group": "../components/animation-group/index",
+    "wux-actionsheet": "../components/actionsheet/index",
+    "wux-refresher": "../components/refresher/index"
+  }
+}

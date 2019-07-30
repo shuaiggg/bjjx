@@ -1,0 +1,12 @@
+<!--sdk/component/rollCall/rollCall.wxml-->
+
+<view hidden="{{!showDialog}}" class='roll-call-dialog'>
+  <!-- 点名的dialog，若要通用只需要改写相应绑定的数据和事件 -->
+  <dialog showCancelBtn='{{showCancelBtn}}' content='{{content}}' confirmText='{{confirmText}}' bind:confirm='onDialogConfirm'>
+    <cover-view wx:if='{{isAndroid}}' class='roll-call-container'>
+      <cover-view class='roll-call-content'>{{language.CALL_THE_ROOL_REQUIREMENTS_BEFORE}}</cover-view>
+      <cover-view class='roll-call-duration'> {{duration}}s </cover-view>
+      <cover-view class='roll-call-content'>{{language.CALL_THE_ROOL_REQUIREMENTS_AFTER}}</cover-view>
+    </cover-view>
+  </dialog>
+</view>

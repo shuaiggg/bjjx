@@ -1,0 +1,1 @@
+exports.WHISPER_TITLE="Private chat with ${userName}:",exports.ME="Me";

@@ -1,0 +1,27 @@
+<!--common/component/emotion/emotion.wxml-->
+<swiper indicator-dots="true" class="bjy-emotion-list">
+    <swiper-item class="bjy-emotion-wrapper" wx:for="{{allPageData}}" wx:key='{{index}}'>
+        <view class="bjy-emotion-row" wx:for="{{item}}" wx:key='{{index}}'>
+            <view wx:for="{{item}}" wx:key='{{index}}'>
+                <view class="bjy-emotion-thumbnail"
+                      wx:if="{{item.name=='emptyFill'}}">
+                    <view class="bjy-empty"
+                          style="width: {{imgWidth}}px; height: {{imgHeight}}px"
+                    ></view>
+                    <view class="bjy-emotion-name empty"
+                          wx:if="{{showImgName}}">..
+                    </view>
+                </view>
+                <view class="bjy-emotion-thumbnail" wx:else>
+                    <image src="{{item.src}}" bindtap="imgTap" style="width: {{imgWidth}}px;height: {{imgHeight}}px" data-name="{{item.name}}" data-key="{{item.key}}" data-url="{{item.url}}">
+                    </image>
+
+                    <view class="bjy-emotion-name" wx:if="{{showImgName}}">
+                        {{item.name}}
+                    </view>
+
+                </view>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>

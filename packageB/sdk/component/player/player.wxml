@@ -1,0 +1,26 @@
+<view class="player-wrapper"
+      bindlongtap="onPlayerLongTap">
+    <live-player id="player-{{userInfo.id}}" autoplay
+                 bindfullscreenchange="onFullscreenChange"
+                 bindnetstatus="onNetStatus" class="player"
+                 bindstatechange="onStateChange" binderror="onError"
+                 src="{{streamName}}" mode="RTC"
+                 style="width: 100%;height:100%;">
+        <cover-view class="cover-image-wrapper" hidden="{{!(!userInfo.videoOn || notSupported)}}">
+        </cover-view>
+        <cover-image class="cover-image" hidden="{{!(!userInfo.videoOn || notSupported)}}"
+                     src="{{coverImage}}">
+        </cover-image>
+        <cover-view class="player-cover" bindtap="onPlayerTap">
+        </cover-view>
+        <cover-view class="player-name" hidden="{{!showName}}"
+                    style="font-size: {{styleInfo.fontSize}}px">
+            {{userInfo.name}}
+        </cover-view>
+        <cover-view class="player-loading"
+                    hidden="{{!(showLoading && userInfo.videoOn)}}"
+                    style="font-size:{{styleInfo.fontSize}}px" >
+            {{language.LOADING}}
+        </cover-view>
+    </live-player>
+</view>

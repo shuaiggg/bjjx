@@ -1,0 +1,9 @@
+.secondary-tabs{display: flex;justify-content: flex-start;margin: 15rpx 0;flex-wrap: wrap;
+background:#fff;
+}
+.secondary-tab{flex-basis: 20%;}
+.secondary-tab-text{color: #333;border: 1rpx solid #adadad;height: 60rpx;line-height: 60rpx;
+font-size: 28rpx;text-align: center;width: 80%;margin: 8% auto;border-radius: 14rpx;}
+.secondary-active{background: #f26e1b;border: 1rpx solid #f26e1b;color:#fff;}
+
+.arrow-down{display: inline-block;font-size: 18rpx;padding: 0;margin: 0;vertical-align: middle;}

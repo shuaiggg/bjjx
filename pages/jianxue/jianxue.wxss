@@ -1,0 +1,39 @@
+.fix-btn{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100vw;
+  height: 130rpx;
+  align-items: center;
+  justify-content: space-around;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  box-shadow: 0 -1px 3px 0px rgba(0,0,0,0.1);
+  background-color:#fff;
+}
+.btn-welfare{
+  flex: none;
+  flex-basis: 34%;
+  height: 80rpx;
+  color: #f16f1b;
+  border: 1rpx solid #f16f1b;
+  border-radius: 40rpx;
+  background: #fff;
+}
+.branch-school{
+  flex: none;
+  flex-basis: 34%;
+  height: 80rpx;
+  color: #fff;
+  border: 1rpx solid #f16f1b;
+  border-radius: 40rpx;
+  background: #f16f1b;
+}
+
+.zoujin{
+  display: block;
+  width: 100%;
+  height: auto;
+}

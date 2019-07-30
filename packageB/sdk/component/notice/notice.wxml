@@ -1,0 +1,12 @@
+<view class="content">
+    <view style="color: {{styleInfo.titleColor}};"class="content-title">{{language.NOTICE}}</view>
+    <view class="content-main"
+          style="color: {{styleInfo.contentColor}};background: {{styleInfo.contentBackground}}">
+        <text>
+            {{content || defaultContent}}
+        </text>
+        <view wx:if="{{url}}">
+            链接:{{url}}
+        </view>
+    </view>
+</view>

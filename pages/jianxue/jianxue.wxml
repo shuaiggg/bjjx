@@ -1,0 +1,12 @@
+<!--pages/jianxue/jianxue.wxml-->
+<view class="page">
+  <header id="header" title="{{header.title}}" rotate="{{header.rotate}}" bindtap="showActionSheet"></header>
+  <view class="page__bd">
+    <image class="zoujin" wx:for="{{images}}" wx:key="{{index}}" mode='widthFix' src="{{baseUrl}}{{item.img_path}}"></image>
+    <view style="height: 130rpx"></view>
+    <view class="fix-btn">
+       <navigator class="btn-welfare" url="../welfare/welfare">简公益</navigator>
+       <navigator class="branch-school" url="../branchSchool/branchSchool">全国分校</navigator>
+    </view>
+  </view>
+</view>

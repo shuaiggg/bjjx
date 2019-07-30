@@ -1,0 +1,24 @@
+<header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+
+<view class="receive-data" style="height: calc(100vh - {{navigaHeight}}px);">
+  <image mode="widthFix" src="{{baseUrl}}/static/icon/receive_data/receive_data.png"></image>
+  <view class="receive-content">
+    <view class="receive-content-left">
+      <image mode="widthFix" src="{{baseUrl}}/static/icon/receive_data/receive_data_icon.png"></image>
+    </view>
+    <view style="padding-left: 25rpx">
+      <view class="receive_title">{{ categoryType === 1 ? '药师2019考期备考资料' : '营养师2019考期备考资料' }}</view>
+      剩余 <view class="loading-wrapper"><view class="loading-bar" style="width: {{percent}}%">{{current}}/999</view></view>
+      <view bindtap='doCopy' data-msg="{{ categoryType === 1 ? 'jianxue02' : 'xiaojianteacher' }}" class="receive_btn">免费领取</view>
+    </view>
+  </view>
+</view>  
+
+<view class="ley-tips {{showPop ? 'fade-in' : ''}}">
+    <image 
+      class='ad-img' 
+      mode='widthFix' 
+      src='{{baseUrl}}/static/icon/receive_data/receive_alert.png'>
+    </image>
+    <view class="ad-btn" bindtap="closeAD">x</view>
+</view>

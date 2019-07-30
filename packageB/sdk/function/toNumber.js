@@ -1,0 +1,1 @@
+var $=require("../jquery"),parser={int:parseInt,float:parseFloat};module.exports=function(r,e,a){if("number"!==$.type(r)){var t=parser[a];r=t?t(r,10):$.isNumeric(r)?+r:NaN}return isNaN(r)?e:r};

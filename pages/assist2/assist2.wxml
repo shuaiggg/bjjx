@@ -1,0 +1,40 @@
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header> 
+  <view class="page__bd">
+    <view class="tou-tu">
+      <image mode='widthFix' src='https://wx.jianxuejy.net/static/icon/christmas/cs_02.jpg'></image>
+    </view>
+    
+    <view class="assist-foot" style='background-url'>
+      <view class="assist-inner" style='background:#fff;border: 6rpx solid #ffc600'>
+        <view class='lead' style='color:#444;'>
+          <image mode='widthFix' src="{{shareInfo.headImage}}"></image>{{shareInfo.nickName}} 
+        </view>
+
+        <view class='friend-box'>
+          <view style='color: #666666;font-weight: bold;' class='friend-text'>我在元旦许愿墙活动中许了一个愿， 让我的愿望成真吧！</view>
+        </view>
+
+        <view class='up-box'>当前支持数：
+          <view class='up-num'>{{count}}</view>
+        </view>
+
+        <view wx:if="{{isMe === 0}}" class='btn-group'>
+          <button  wx:if="{{helped === 0 && havePhone === 0}}" hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">给TA支持</button>
+          <button  wx:elif="{{helped === 0 && newNickName === ''}}" hover-class='none' open-type="getUserInfo" bindgetuserinfo="getUserInfo">给TA支持</button>
+          <button wx:elif="{{helped === 0}}">给TA支持</button>
+          <button wx:else hover-class='none' style='background: #6d6d6d'>已支持</button>
+
+          <navigator url="../themeActivity/themeActivity" hover-class='none'>我要许愿</navigator>
+        </view>
+        <view wx:else class='btn-group'>
+          <button style="flex-basis: 96%" open-type='share' hover-class='none'>获取支持</button>
+        </view>
+
+        <!-- 悬浮按钮 -->
+        <view wx:if="{{!header.iconShow}}" class="go-home" bindtap='goHome'>返回首页></view>
+      </view>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,1 @@
+"use strict";module.exports=function(t,n){var u,e=0,o=function(){t[e]&&(t[e](),u=setTimeout(function(){u=null,e++,o()},n))};return o(),function(){u&&clearTimeout(u)}};

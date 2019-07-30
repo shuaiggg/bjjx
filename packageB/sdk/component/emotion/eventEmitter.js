@@ -1,0 +1,1 @@
+exports.EMOTION_SEND="emotion_send";

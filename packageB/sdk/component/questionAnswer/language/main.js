@@ -1,0 +1,1 @@
+var getLanguage=require("../../../function/getLanguage").getLanguage;module.exports=function(){return getLanguage({chineseLive:require("./chineseLive"),chineseClassroom:require("./chineseClassroom")})};

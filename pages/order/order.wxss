@@ -1,0 +1,37 @@
+/* pages/order/order.wxss */
+.weui-navbar__slider{width: 33.33%;}
+.wux-prompt{background: none;}
+.wux-prompt__bd{margin-top: 40%;}
+
+.weui-media-box__desc, .weui-media-box__info{color: #6d6d6d;font-size: 13px;}
+.my-media-box__info{color: #ff0000;}
+
+.techer-img{margin-right:5px;width: 14px;height: 14px;border-radius: 50%;vertical-align: text-bottom;}
+
+.order-hd{padding: 0 15px;font-size: 12px;}
+.order-id{flex-basis: 60%;line-height: 40px;}
+.order-state{line-height: 40px;color: #f79649;text-align: right;}
+
+.order-fd{display: flex;justify-content: flex-end;width: 92%;padding: 26rpx 4%;
+  border-top: 1px solid #eee;font-size: 26rpx;
+}
+button {
+  position:relative;
+  margin-right:auto;
+  padding-left:14px;
+  padding-right:14px;
+  box-sizing:border-box;
+  text-align:center;
+  text-decoration:none;
+  border-radius:5px;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+}
+.handle-btn{margin-left:20px;background: none;border: 1px solid #ff7d2f;color: #ff7d2f;}
+.pay-btn{background: #ff7d2f;border: none;color: #fff;}
+.my-shadow{padding-bottom: 0;}
+
+.weui-panel:after{height: 0;border-bottom: none;}
+.weui-navbar{position:fixed;top:152rpx;background: #fff;}
+
+page, .page, .page__bd, .weui-panel__bd{height: 100%;}

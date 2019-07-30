@@ -1,0 +1,3 @@
+<loading class="loading-wrapper" styleInfo="{{options}}"
+         bind:loadEnded="roomLoadEnded">
+</loading>

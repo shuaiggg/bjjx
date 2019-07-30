@@ -1,0 +1,60 @@
+.page__bd{
+  padding: 30rpx 0rpx;
+  background: #f5f5f5;
+}
+.school-box{
+  margin: 0rpx auto 30rpx auto;
+  width: 92vw;
+  padding: 4%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 24rpx;
+  border-bottom-right-radius: 56rpx;
+}
+.school-img image{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.school-bottom{
+  margin: 20rpx 0;
+}
+.school-l{
+  position: relative;
+  color: #666;
+  font-size: 24rpx;
+}
+.school-name{
+  font-size: 32rpx;
+  color: #333;
+  font-weight: bold;
+}
+.address-icon{
+  display: inline-block;
+  margin-right: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: text-top;
+}
+.address-icon image{
+  width: 100%;
+}
+.school-tel{
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 30rpx;
+  color: #666;
+  font-weight: bold;
+  text-align:right;
+}
+.tel-icon{
+  display: inline-block;
+  margin-right: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  vertical-align: text-top;
+}
+.tel-icon image{
+  width: 100%;
+}

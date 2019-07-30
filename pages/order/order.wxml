@@ -1,0 +1,129 @@
+<import src="../common/prompt/prompt.wxml"/>
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}" isPlaceholder="{{header.isPlaceholder}}"></header>
+  <view class="page__bd">
+    <view class="weui-tab">
+      <view class="weui-navbar" style="top:{{152 + navigaHeight}}rpx;">
+          <block wx:for="{{tabs}}" wx:key="*this">
+              <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                  <view class="weui-navbar__title">{{item}}</view>
+              </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view style="margin-top:{{152 + navigaHeight}}rpx;" class="weui-tab__content" hidden="{{activeIndex != 0}}">
+            <wux-refresher id="{{activeIndex == 0 ? 'wux-refresher' : ''}}" bind:pulling="onPulling" bind:refresh="onRefresh">
+              <!-- 列表布局一 -->
+              <view class="weui-panel weui-panel_access">
+                  <view class="weui-panel__bd" wx:if="{{paid.length > 0}}">
+                    <block wx:for="{{paid}}" wx:key="{{index}}">
+                      <view class="weui-flex order-hd">
+                          <view class="weui-flex__item order-id">订单编号:{{item.sn}}</view>
+                          <view class="weui-flex__item order-state">处理成功</view>
+                      </view>
+                      <navigator url="../playback/playback?type=2&id={{item.courseId}}&paid=ok&imgUrl={{item.largePicture}}" class="weui-media-box weui-media-box_appmsg" hover-class='none'>
+                          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg my-shadow">
+                              <image class="weui-media-box__thumb" src="{{baseUrl}}{{item.largePicture}}" />
+                          </view>
+                          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                              <view class="weui-media-box__title">{{item.title}}</view>
+                              <view class="weui-media-box__desc">
+                                <view class='flex-bottm'>
+                                  <view class='flex-bottm-item'>x1</view>
+                                  <view wx:if="{{!isIos}}" class='flex-bottm-item flex-bottm-price'>￥{{item.price}}</view>
+                                </view>
+                              </view>
+                          </view>
+                      </navigator>
+                      <view class='fenge-bg'></view>
+                    </block>
+                  </view>
+                  <view class="weui-panel__bd" wx:else>
+                    <template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+                  </view>
+              </view>
+            </wux-refresher>
+        </view>
+        <view style="margin-top:{{152 + navigaHeight}}rpx;" class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <wux-refresher id="{{activeIndex == 1 ? 'wux-refresher' : ''}}" bind:pulling="onPulling" bind:refresh="onRefresh">
+            <!-- 列表布局一 -->
+            <view class="weui-panel weui-panel_access">
+                <view class="weui-panel__bd" wx:if="{{created.length > 0}}">
+                  <block wx:for="{{created}}" wx:key="{{index}}">
+                    <view class="weui-flex order-hd">
+                        <view class="weui-flex__item order-id">订单编号:{{item.sn}}</view>
+                        <view class="weui-flex__item order-state">待付款</view>
+                    </view>
+                    <view class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg my-shadow">
+                            <image class="weui-media-box__thumb" src="{{baseUrl}}{{item.largePicture}}" />
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            <view class="weui-media-box__title">{{item.title}}</view>
+                            <view class="weui-media-box__desc">
+                              <view class='flex-bottm'>
+                                <view class='flex-bottm-item'>x1</view>
+                                <view class='flex-bottm-item flex-bottm-price'>￥{{item.price}}</view>
+                              </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="order-fd">
+                      <view>
+                        <button data-sn="{{item.sn}}" data-msg="{{created}}" data-num="{{index}}" data-action="{{'cancelled'}}" bindtap='operateOrder' class="handle-btn" size="mini">取消订单</button>
+                        <button bindtap='continuePay' data-courseid="{{item.courseId}}" data-sn="{{item.sn}}" data-msg="{{created}}" data-num="{{index}}" class="handle-btn pay-btn" size="mini">立即付款</button>
+                      </view>
+                    </view>
+                    <view class='fenge-bg'></view>
+                  </block>
+                </view>
+                <view class="weui-panel__bd" wx:else>
+                  <template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+                </view>
+            </view>
+          </wux-refresher>
+        </view>
+        <view style="margin-top:{{152 + navigaHeight}}rpx;" class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <wux-refresher id="{{activeIndex == 2 ? 'wux-refresher' : ''}}" bind:pulling="onPulling" bind:refresh="onRefresh">
+            <!-- 列表布局一 -->
+            <view class="weui-panel weui-panel_access">
+                <view class="weui-panel__bd" wx:if="{{cancelled.length > 0}}">
+                  <block wx:for="{{cancelled}}" wx:key="{{index}}">
+                    <view class="weui-flex order-hd">
+                        <view class="weui-flex__item order-id">订单编号:{{item.sn}}</view>
+                        <view class="weui-flex__item order-state">已取消</view>
+                    </view>
+                    <view class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg my-shadow">
+                            <image class="weui-media-box__thumb" src="{{baseUrl}}{{item.largePicture}}" />
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            <view class="weui-media-box__title">{{item.title}}</view>
+                            <view class="weui-media-box__desc">
+                              <view class='flex-bottm'>
+                                <view class='flex-bottm-item'>x1</view>
+                                <view class='flex-bottm-item flex-bottm-price'>￥{{item.price}}</view>
+                              </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="order-fd">
+                      <view>
+                        <button data-sn="{{item.sn}}" data-msg="{{cancelled}}" data-num="{{index}}" data-action="{{'delete'}}" bindtap='operateOrder' class="handle-btn" size="mini">删除订单</button>
+                      </view>
+                    </view>
+                    <view class='fenge-bg'></view>
+                  </block>
+                </view>
+                <view class="weui-panel__bd" wx:else>
+                  <template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+                </view>
+            </view>
+          </wux-refresher>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

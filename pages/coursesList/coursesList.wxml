@@ -1,0 +1,140 @@
+<wux-actionsheet id="wux-actionsheet" />
+
+<view class="page">
+  <header id="header" title="{{header.title}}" rotate="{{header.rotate}}" bindtap="showActionSheet"></header>
+  <wux-animation-group hidden="{{!scrollTabs}}" class="scroll-tabs" in="{{scrollTabs}}" class-names="wux-animate--slideInUp">
+      <!-- tabs选项卡 -->
+      <scroll-view class="scroll-view_H" scroll-x scroll-with-animation scroll-into-view="{{intoView}}">
+        <block wx:for="{{categoryInfo}}" wx:key="{{index}}">
+          <view id="id{{item.categoryId}}" data-into="{{item.categoryId}}" bindtap='askCourses' class="scroll_H_item {{current === item.categoryId ? 'selected' : ''}}">{{item.name}}
+            <view class="{{current === item.categoryId ? 'selected-line' : ''}}"></view>
+          </view>
+        </block>
+      </scroll-view>
+  </wux-animation-group>
+  <wux-refresher id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh">
+    <!-- 轮播图 -->
+    <view class='swiper-box'>
+      <swiper style="height:{{swiperHeight}}px" id="swiper" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-active-color="{{activeColor}}">
+        <block wx:for="{{bannerInfo}}" wx:key="{{index}}">
+          <swiper-item bindtap="jumpTo" data-jumpto="{{item.jumpto}}">
+            <image mode='widthFix' src="{{baseUrl}}{{item.imgUrl}}?{{nowTime}}" bindload='imageLoad' class="slide-image"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <!-- 专业指导 -->
+    <navigator wx:if="{{examGuidance === 1}}" hover-class="none" slot="gourl" class='exam-guidance' url="../examDetail/examDetail?categoryId={{categoryId}}">
+      <image mode="widthFix" src="{{baseUrl}}/static/icon/ui/exam_guidance.png"></image>
+    </navigator>
+    
+    <!-- 分割栏目条 -->
+    <column wx:if="{{liveCourse.length > 0}}" class="lecture" title="名师讲堂" icon="https://wx.jianxuejy.net/static/icon/ui/jiangtang.png">
+      <navigator id="famous-teacher" hover-class="none" slot="gourl" class='weui-flex__item fenge-more' url="../techers/techers">更多</navigator>
+    </column>
+    <!-- 名师讲堂 -->
+    <scroll-view class="scroll_H" scroll-x style="width: 100%">
+      <block wx:for="{{liveCourse}}" wx:key="{{index}}">
+        <navigator wx:if="{{item.playTitle}}" id="{{item.id}}" hover-class="none" url="../mediadetail/mediadetail?liveCourseId={{item.id}}" class="scroll-item_H">
+          <view class="weui-panel jx-panel">
+            <view class="weui-panel__bd padding10">
+              <view class="weui-media-box weui-media-box_text my-shadow">
+                  <image style='width:100%;height:100%;' src="{{baseUrl}}{{item.playImg}}" mode="widthFix"></image>
+                  <view class="weui-media-box__desc jx-padding">{{item.playTitle}}</view>
+                  <view class='live-msg'>
+                    <image class='playing-img' src='https://wx.jianxuejy.net/static/icon/ui/shijian.png'></image>{{item.playTime}}  |  
+                    <image class='playing-img' src='https://wx.jianxuejy.net/static/icon/ui/people.png'></image>{{item.peopleNum}}{{item.playType == 1 ? '人观看' : '人预约'}}
+                  </view>
+              </view>           
+            </view>
+            <view class='medal'>{{item.playType == 1 ? '正在直播' : '预告'}}
+              <image wx:if="{{item.playType == 1}}" class='playing-img' src='https://wx.jianxuejy.net/static/icon/ui/living.png'></image>
+            </view>        
+          </view>
+        </navigator>
+        <navigator wx:else id="{{item.id}}" hover-class="none" url="../mediadetail/mediadetail?liveCourseId={{item.id}}" class="scroll-item_H">
+          <view class="weui-panel jx-panel">
+            <view class="weui-panel__bd padding10">
+              <view class="weui-media-box weui-media-box_text my-shadow">
+                  <image style='width:100%;height:100%;' src="{{baseUrl}}{{item.picture}}" mode="widthFix"></image>
+                  <view class="weui-media-box__desc jx-padding">{{item.title}}</view>
+              </view>           
+            </view>
+            <view class='medal'>回放</view>        
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+
+    <view class="page__bd">
+      <!-- tab导航区 -->
+      <view class="tab-nav">
+        <view hidden="{{scrollTabs}}">
+          <!-- tabs选项卡 -->
+          <scroll-view class="scroll-view_H" scroll-x scroll-with-animation scroll-into-view="{{intoView}}">
+            <block wx:for="{{categoryInfo}}" wx:key="{{index}}">
+              <view id="id{{item.categoryId}}" data-into="{{item.categoryId}}" bindtap='askCourses' class="scroll_H_item {{current === item.categoryId ? 'selected' : ''}}">{{item.name}}
+                <view class="{{current === item.categoryId ? 'selected-line' : ''}}"></view>
+              </view>
+            </block>
+          </scroll-view>
+        </view>
+
+        <view hidden="{{!scrollTabs}}">
+          <column title="课程列表" icon="https://wx.jianxuejy.net/static/icon/ui/huifang.png"></column>
+        </view>
+      </view>
+
+      <!-- tab内容区 -->
+      <view class="weui-tab__panel" style='padding-top:0;'>
+        <view wx:if="{{freeCourse.length > 0}}">
+          <comlist class="go-detail" bindtap="goPlayBackPay" data-serial="{{index}}" wx:for="{{freeCourse}}" wx:key="{{index}}" title="{{item.title}}" rColor="right-title-color" sImg="{{baseUrl}}{{item.photo}}" lImg="{{baseUrl}}{{item.largePicture}}" lTitle="{{item.name}}" rTitle="{{m1.filter.formStr(isIos,item.salePrice)}}"></comlist>
+        </view>
+        <view class='jx-nothing' wx:else>暂无课程</view>
+      </view>
+    </view>
+  </wux-refresher>
+
+  <!-- 悬浮按钮 -->
+  <view class='xf-btn' style="right: {{hideChat ? '-10%' : '15px'}}">
+      <button class="{{hideChat ? '' : 'shake'}}" open-type="contact">
+        <image mode='widthFix' src="../../image/wechat.png"></image>
+        <view class='noline-chat'>在线咨询</view>
+      </button>  
+      <view bindtap='hideChat' class="close-chat">x</view>
+  </view>
+</view>
+
+<view class="ley-tips {{isShowGuide || isUpgrade ? 'fade-in' : ''}}">
+  <!-- 引导蒙层 -->
+  <view wx:if="{{isShowGuide && !isUpgrade}}" class="ad-box" style="margin-top: -50%;">
+    <image class='ad-img' mode='widthFix' src='https://wx.jianxuejy.net/static/icon/ui/guide_img1.png'></image>
+    <view class="guide-btn" bindtap="closeGuide">我知道了</view>
+  </view>
+
+  <!-- 更新提示 -->
+  <view wx:elif="{{!isShowGuide && isUpgrade}}" class="upgrade-box">
+    <view class="upgrade-header">
+      <view class="tit-cn">更新内容</view>
+      <view class="tit-el">Update content</view>
+    </view>
+    <view class="upgrade-body">
+      <view wx:for="{{upgradeContent}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+    <view bindtap='closeUpgrade' class="upgrade-footer">我知道了</view>
+  </view>
+
+  <!-- 广告亚屏 -->
+  <navigator wx:else class="ad-box" url="../themeActivity/themeActivity">
+    <image 
+      class='ad-img' 
+      mode='widthFix' 
+      src='https://wx.jianxuejy.net/static/icon/christmas/tan.png'>
+    </image>
+    <view class="ad-btn" bindtap="closeAD">x</view>
+  </navigator>
+
+</view>
+
+<wxs module="m1" src="../../filter/common.wxs"></wxs>

@@ -1,0 +1,50 @@
+/* playbackSDK/component/mediaController/mediaController.wxss */
+
+.bjy-media-controller {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 65rpx;
+  padding: 0 10rpx;
+  background-color: #000;
+}
+
+.bjy-play-controller {
+  margin-right: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.bjy-play-controller-img {
+  display: block;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.bjy-progress-slider {
+  flex: 1;
+  margin: 0 20rpx;
+}
+
+.bjy-progress-text {
+  padding: 0 5rpx;
+  font-size: 20rpx;
+  color: #fff;
+}
+
+.bjy-fullscreen-controller {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.bjy-fullscreen-img {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.bjy-rate-controller, .bjy-resolution-controller {
+  margin: 10rpx;
+  font-size: 30rpx;
+  color: #fff;
+}

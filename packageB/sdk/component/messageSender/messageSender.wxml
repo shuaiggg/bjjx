@@ -1,0 +1,16 @@
+<!--common/component/messageSend/messageSend.wxml-->
+<view class="bjy-message-sender" id="bjy-message-sender">
+  <view class="bjy-message-wrapper">
+    <view>
+      <image class='emotion-icon' mode="scaleToFill" data-name="emotion" hidden="{{showEmotion}}" src="./img/bjl_ic_emotion@3x.png" bindtap="iconTap"></image>
+      <image class='emotion-icon' hidden="{{!showEmotion}}" mode="scaleToFill" data-name="inEmotion" src="./img/bjl_ic_keybord@3x.png" bindtap="iconTap"></image>
+    </view>
+    <!-- 小程序组件bug存在输入内容时placeholder有时候仍然存在，此处多加一下content判断 -->
+    <input type="text" confirm-type='send' maxlength="{{messageMaxLength}}" model="content" value="{{messageValue}}" confirm-hold='{{messageCommand || confirmHold}}' bindconfirm="sendMessage" placeholder="{{content ? '' : (isCommandInputError? language.LOTTERY_COMMAND_ERROR : (messageCommand ? (language.LOTTERY_MESSAGE_TIP_BEFORE + ' ' + messageCommand + ' ' + language.LOTTERY_MESSAGE_TIP_AFTER) : placeholder))}}"
+      placeholder-class="{{isCommandInputError ? 'bjy-placeholder-error':''}}" focus="{{messageCommand || focus}}">
+    </input>
+  </view>
+  <view class="bjy-emoji-layer" hidden="{{!showEmotion}}">
+    <emotion emotion-data="{{emotionList}}" bind:emotionTap="emotionTap"></emotion>
+  </view>
+</view>

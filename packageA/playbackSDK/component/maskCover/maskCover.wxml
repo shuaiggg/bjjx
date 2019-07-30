@@ -1,0 +1,9 @@
+<!--common/component/maskCover/maskCover.wxml-->
+<view hidden="{{!show}}">
+    <cover-view class="mask-top mask" id="mask-top" style="bottom: {{maskBottom}}px"
+                bindtap="maskTap" >
+    </cover-view>
+    <view class="content" id="content" hidden="{{!show}}">
+        <slot></slot>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+/* sdk/component/pencil/pencil.wxss */
+.pencil-image {
+    width: 36px;
+    height: 36px;
+}

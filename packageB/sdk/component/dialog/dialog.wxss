@@ -1,0 +1,67 @@
+/* sdk/component/dialog/dialog.wxss */
+
+.bjy-dialog-view {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.dialog-title {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.dialog-body {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.dialog-footer {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 0 24px 24px;
+}
+
+.dialog-btn {
+  box-sizing: border-box;
+  flex: 1;
+  margin: 0;
+  border: transparent;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.dialog-btn:active {
+  background-color: #eee;
+}
+
+.confirm-btn {
+  color: #fff;
+  background-color: #17b5ff;
+}
+
+.cancel-btn {
+  margin-left: 10px;
+  border:1rpx solid #17b5ff;
+}
+
+.dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.6);
+}

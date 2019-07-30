@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "header": "../components/header/header",
+    "wux-cell-group": "../components/cell-group/index",
+    "wux-cell": "../components/cell/index",
+    "wux-select": "../components/select/index",
+    "wux-button": "../components/button/index",
+    "wux-dialog": "../components/dialog/index"
+  }
+}

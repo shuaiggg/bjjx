@@ -1,0 +1,35 @@
+<import src="../common/prompt/prompt.wxml"/>
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}" isPlaceholder="{{lesson.length > 0}}"></header>
+  <wux-refresher id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh">
+    <view class="page__bd" wx:if="{{lesson.length > 0}}">
+          <view class='payment-lesson'>
+            <view class="weui-panel weui-panel_access">
+                <view class="weui-panel__bd">
+                  <block wx:for="{{lesson}}" wx:key="{{index}}">
+                    <navigator url="../playback/playback?type=2&id={{item.id}}&paid=ok&imgUrl={{item.largePicture}}" class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg my-shadow" style='padding:0;'>
+                            <image class="weui-media-box__thumb" src="{{baseUrl}}{{item.largePicture}}" />
+                        </view>
+                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                            <view class="weui-media-box__title">{{item.title}}</view>
+                            <view class="weui-media-box__desc">
+                              <view class='flex-bottm'>
+                                <view class='flex-bottm-item'>
+                                <image class='techer-img' src="{{baseUrl}}{{item.photo}}"></image>{{item.name}}</view>
+                              </view>
+                            </view>
+                        </view>
+                    </navigator>
+                  </block>
+                </view>
+            </view>  
+          </view>
+    </view>
+    <view class='no-data' wx:else>
+      <template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+    </view>
+   </wux-refresher>
+</view>
+

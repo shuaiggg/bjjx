@@ -1,0 +1,18 @@
+
+    <header isShow="{{header.iconShow}}" title="{{header.title}}" bindtap="showActionSheet"></header>
+    
+      <view class="major-box" style="height: calc(100vh - {{152 + navigaHeight}}rpx);">
+        <view class="major-wrapper">
+          <block wx:for="{{rightSlider}}" wx:key="{{ index }}">
+              <button class='right-slider-item' open-type="getUserInfo" bindgetuserinfo="getUserInfo" data-category="{{item.name}}" data-categoryid="{{item.id}}">
+                <view id="{{item.id}}" class='right-slider-text'>
+                  <view>
+                    <image class='right-slider-icon' src="{{baseUrl}}{{item.icon}}"></image>
+                  </view>
+                  <view>{{item.name}}</view>
+                </view>
+              </button>
+          </block>
+        </view>
+      </view>
+

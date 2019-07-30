@@ -1,0 +1,30 @@
+<!--playbackSDK/component/mediaController/mediaController.wxml-->
+<view wx:if='{{mediaControllerConfig.showPlayBtn !== false}}' class='bjy-media-controller'>
+  <view class='bjy-play-controller' bindtap='togglePlay'>
+    <image wx:if='{{isPlaying}}' class='bjy-play-controller-img' src='/playbackSDK/component/mediaController/image/pause.png'></image>
+    <image wx:else class='bjy-play-controller-img' src='/playbackSDK/component/mediaController/image/play.png'></image>
+  </view>
+
+  <text wx:if='{{mediaControllerConfig.showCurrentTime !== false}}' class='bjy-progress-text'>{{progressText}}</text>
+  <slider wx:if='{{mediaControllerConfig.showProgressBar !== false}}' class='bjy-progress-slider' bindchange='sliderChange' bindchanging='sliderChanging' max='{{duration}}' value='{{sliderValue}}' activeColor='{{activeColor}}' backgroundColor='{{backgroundColor}}'
+    blockSize='{{blockSize}}'></slider>
+  <text wx:if='{{mediaControllerConfig.showDuration !== false}}' class='bjy-progress-text'>{{durationStr}}</text>
+  <view wx:if='{{mediaControllerConfig.showResolutionPicker !== false}}' class='bjy-resolution-controller'>
+    <picker bindchange="changeResolution" value="{{resolutionIndex}}" range="{{resolutionTextArr}}">
+      <view class="bjy-resolution-picker">
+        {{resolutionTextArr[resolutionIndex]}}
+      </view>
+    </picker>
+  </view>
+  <view wx:if='{{mediaControllerConfig.showPlaybackRatePicker !== false}}' class='bjy-rate-controller'>
+    <picker bindchange="changeRate" value="{{rateArrIndex}}" range="{{rateArr}}">
+      <view class="bjy-rate-picker">
+        {{rateArr[rateArrIndex]}}x
+      </view>
+    </picker>
+  </view>
+  <view wx:if='{{mediaControllerConfig.showFullScreen !== false}}' class='bjy-fullscreen-controller' bindtap='toggleFullScreen'>
+    <image wx:if='{{isFullScreen}}' class='bjy-fullscreen-img' src='/playbackSDK/component/mediaController/image/shrink.png'></image>
+    <image wx:else class='bjy-fullscreen-img' src='/playbackSDK/component/mediaController/image/expand.png'></image>
+  </view>
+</view>

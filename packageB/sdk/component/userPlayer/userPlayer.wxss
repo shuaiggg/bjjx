@@ -1,0 +1,7 @@
+.user-player-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.player-wrapper {
+    width: 100px;
+}

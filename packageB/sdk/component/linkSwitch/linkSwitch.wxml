@@ -1,0 +1,15 @@
+<!--sdk/component/linkSwitch/linkSwitch.wxml-->
+<cover-view class="link-switch">
+    <cover-image class="options-trigger" bindtap="onValueTap"
+                 src='/sdk/component/linkSwitch/image/switch.png'
+                 hidden="{{options.length<2 || showOptions}}">
+    </cover-image>
+    <cover-view  class="options-wrapper" hidden="{{!showOptions}}">
+        <cover-view wx:for="{{options}}"
+                    class="{{currentObj.key == item.key ? 'active':''}} options"
+                    data-key="{{item.key}}"
+                    bindtap="onOptionTap">
+            {{item.name}}
+        </cover-view>
+    </cover-view>
+</cover-view>

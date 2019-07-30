@@ -1,0 +1,45 @@
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view class="page__bd">
+    <!-- 分割栏目条 -->
+    <view class='fenge-title'>
+      <view class="weui-flex">
+          <view class="weui-flex__item fenge-title-left">订单信息</view>
+      </view>
+    </view>
+
+    <!-- 列表布局一 -->
+    <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg my-shadow" style='padding:0;'>
+                    <image class="weui-media-box__thumb" src="{{baseUrl}}{{imgUrl}}" />
+                </view>
+                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                    <view class="weui-media-box__title">{{title}}</view>
+                    <view class="weui-media-box__desc">
+                      <view class='flex-bottm'>
+                        <view class='flex-bottm-item flex-bottm-price'>￥{{price}}</view>
+                      </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='fenge-bg'></view>
+    <navigator url="../coupon/coupon?courseId={{courseId}}&canUse=1" class="weui-cell weui-cell_access my-cell">
+        <view class="weui-cell__hd">          
+        </view>
+        <view class="weui-cell__bd">优惠券</view>{{defWord}}
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    
+    <!-- 底部按钮  -->
+    <view class="weui-flex pay-box">
+          <view class="weui-flex__item pay-sum">确认金额：¥{{priceLater}}</view>
+          <view wx:if="{{cancelPay}}" class="weui-flex__item pay-btn" style='background:#f79649;' bindtap='cancelPay'>取消订单</view>
+          <view class="weui-flex__item pay-btn" bindtap="{{cancelPay ? 'continuePay' : 'doPay'}}">{{cancelPay ? '继续支付' : '支付'}}</view>
+    </view>
+  </view>
+</view>

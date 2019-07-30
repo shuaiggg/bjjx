@@ -1,0 +1,1 @@
+"use strict";exports.TEACHER_CLOSE_AUDIO="老师关闭麦克风",exports.TEACHER_OPEN_AUDIO="老师打开麦克风",exports.TEACHER_OPEN_VIDEO="老师打开摄像头",exports.TEACHER_CLOSE_VIDEO="老师关闭摄像头";

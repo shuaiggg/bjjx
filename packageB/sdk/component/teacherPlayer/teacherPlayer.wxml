@@ -1,0 +1,17 @@
+<!--common/component/teacherPlayer/teacherPlayer.wxml-->
+<view style="height: 100%">
+    <view style="height: 100%">
+        <player user-info="{{userInfo}}"
+                stopPlay="{{stopPlay}}"
+                fullScreen="{{fullScreen}}"
+                showName="{{showName}}"
+                coverImage="{{coverImage}}"
+                styleInfo="{{styleInfo}}"
+                bind:netStatus="onNetStatus"
+                bind:playerTap="onPlayerTap"
+                bind:isSupportedChanged="onSupportedChanged"
+                bind:AVStatusChange='onPlayerAVStatusChange'
+        >
+        </player>
+    </view>
+</view>

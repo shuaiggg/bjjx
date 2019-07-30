@@ -1,0 +1,124 @@
+page, .page{height: 100%;}
+/* 悬浮按钮 */
+.xf-btn{position: fixed;right: 15px;bottom: 80rpx;width: 70px;z-index: 99;
+}
+.xf-btn button{position: static;padding: 0;margin: 0;width: 70px;background: none;
+}
+.xf-btn button image{width: 80%;margin: 0 10%;}
+.noline-chat{line-height:54rpx;font-size:24rpx;width: 70px;height:54rpx;background: #f26e1b;color: #fff;text-align: center;border-radius: 60rpx;margin-top: -14rpx;}
+
+.rows-icon{margin-right: 5px;vertical-align: middle;width:20px; height: 20px;}
+.weui-cell_access{font-size: 14px;}
+.action-text{text-align: center;background: #fff;}
+.jx-marsk{position: fixed;top:152rpx;left: 0;width: 100%;height: 100%;
+background: rgba(0,0,0,0.4);z-index: 100;} 
+.fenge-more{text-align: right;color: #6d6d6d;line-height: 40rpx;}
+/* banner带圆角 */
+.swiper-box{margin:10px 0;}
+#swiper{height: 26vh;}  
+.slide-image{width: calc(100% - 20px);margin: 0 10px;border-radius:22rpx;}
+.scroll-tabs{position: fixed;top: 152rpx;left:0;width: 100%;z-index: 100;} 
+.handle{position: absolute;bottom:24rpx;height: 44rpx;line-height: 44rpx;padding: 0 20rpx;font-size: 22rpx;color: #fff;border-radius: 12rpx;text-align: center;}
+.reserved{right:0;background: #666666;}
+.reserve{right:0;background: #f26e1b;}
+.playback{right:0;background: #1ba9f3;}
+/* 名师讲堂横向滚动 */
+.scroll_H{display: flex;white-space: nowrap;}
+.scroll-item_H{display: inline-block;width: 60%;height: 100%;vertical-align: top;}
+.jx-padding{text-align: center;}
+/* 勋章 */
+.medal{position: absolute;left: 15px;top: 15px;height: 32rpx;padding: 6rpx 12rpx;line-height: 32rpx;color: #fff;font-size: 28rpx;background: #f16d1c;
+border-radius: 16rpx;}
+.playing-img{display: inline-block;width: 32rpx;height: 32rpx;vertical-align: top;}
+.my-shadow{padding: 0;font-size: 0;position: relative;}
+.jx-padding{padding: 0;height: 62rpx;line-height: 62rpx}
+.live-msg{position: absolute;left:0;bottom: 62rpx;height: 60rpx;width: 100%;
+background: rgba(0,0,0,0.4);text-align: center;color: #fff;font-size:24rpx;
+line-height:60rpx;}
+.live-msg image{vertical-align: middle;margin: -4rpx 10rpx 0 0;width: 24rpx;height: 24rpx;}
+.tab-nav{height: 100rpx;overflow: hidden;}
+
+@keyframes tada{
+   5%{-webkit-transform:scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg); transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg); }
+
+6%, 10%, 14%, 18% { -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 10deg); transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 10deg); }
+
+8%, 12%, 16% { -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -10deg); transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -10deg); }
+
+20% { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+      }
+.shake{
+  animation: tada 2.5s linear  infinite backwards;
+  transform-origin: center center;
+}
+.shake image{
+  height: auto;
+}
+
+.exam-guidance{
+  position: relative;
+  margin: -63rpx 10px 20rpx 10px;
+  z-index: 10;
+}
+.exam-guidance image{
+  width: 100%;
+  height: auto;
+}
+
+.close-chat{
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  background: #cdcdcd;
+  right: -20rpx;
+  top: -20rpx;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 36rpx;
+  text-align: center;
+}
+
+/* 升级 */
+.upgrade-box{
+  padding: 44rpx 0 40rpx 0;
+  width: 452rpx;
+  color: #343434;
+  font-size: 28rpx;
+  line-height: normal;
+  background: #e5e5e5;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.upgrade-header{
+  margin: 0 auto;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 70%;
+  border-bottom: 2rpx dotted #e3e3e3;
+}
+.tit-cn{
+  font-size: 32rpx;
+  color: #f2701a;
+  font-weight: bold;
+}
+.tit-el{
+  margin: 16rpx 0 24rpx 0;
+  font-size: 14rpx;
+}
+.upgrade-body{
+  margin: 36rpx auto 84rpx auto;
+  width: 71%;
+  text-align: left;
+}
+.upgrade-footer {
+  margin: 0 auto 0rpx auto;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #fff;
+  font-size: 33rpx;
+  background: #f26e1b;
+  border-radius: 10rpx;
+}

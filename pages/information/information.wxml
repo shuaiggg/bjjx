@@ -1,0 +1,22 @@
+<wux-select id="wux-select2" />
+<wux-dialog id="wux-dialog" />
+<wux-dialog id="wux-dialog--alert" />
+
+<view class="page">
+  <header id="header" isShow="{{header.iconShow}}" title="{{header.title}}"></header>
+  <view class="page__bd">
+    <wux-cell-group>
+        <block wx:for="{{fillItem}}" wx:key="{{index}}">
+          <view wx:if="{{item.itemKey == '手机号'}}">
+            <button class='get-phone' wx:if="{{item.itemValue == ''}}" hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" data-serial="{{index}}">
+              <wux-cell isLink title="{{item.itemKey}}" extra="{{item.itemValue}}"></wux-cell>
+              <view class='phone-btn'>点击获取手机号</view>
+            </button>
+             <wux-cell wx:else title="{{item.itemKey}}" extra="{{item.itemValue}}"></wux-cell>
+          </view>
+          <wux-cell wx:else isLink title="{{item.itemKey}}" extra="{{item.itemValue}}" bind:click="{{item.checkItem ? 'onClick2' : 'prompt'}}" data-serial="{{index}}"></wux-cell>
+        </block>
+    </wux-cell-group>
+    <view class='user-msg-btn' bindtap='subInfo'>提交</view>
+  </view>
+</view>

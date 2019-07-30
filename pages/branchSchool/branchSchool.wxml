@@ -1,0 +1,33 @@
+<!--pages/jianxue/jianxue.wxml-->
+<view class="page">
+  <header id="header" title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view class="page__bd">
+    <block wx:for="{{schoolArr}}" wx:key="{{index}}">
+      <view class="school-box">
+        <view class="school-img"
+          bindtap="goMap"
+          data-cardindex="{{index}}">
+          <image mode='widthFix' src="{{baseUrl}}{{item.cover}}"></image>
+        </view>
+        <view class="school-bottom">
+          <view class="school-l"
+            bindtap="goMap"
+            data-cardindex="{{index}}">
+            <view class="school-name">{{item.name}}</view>
+            <view class="address-icon">
+              <image mode='widthFix' src="https://wx.jianxuejy.net/static/icon/ui/coordinate.svg"></image>
+            </view>{{item.address}}
+            <view class="school-tel" 
+              catchtap="makePhone" 
+              data-phonenum="{{item.contact}}">
+              <view class="tel-icon">
+                <image mode='widthFix' src="https://wx.jianxuejy.net/static/icon/ui/landline.svg"></image>
+              </view>{{item.contact}}
+            </view>
+          </view>
+          
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

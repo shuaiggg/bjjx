@@ -1,0 +1,6 @@
+<!--common/component/whiteboard/imageLayer/imageLayer.wxml-->
+<view class="img-wrapper" style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px">
+  <image src="{{pageInfo.url}}" class='img' style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px" data-docId="{{pageInfo.docId}}" data-docPage="{{pageInfo.docPage}}" data-page="{{pageInfo.page}}" data-url="{{pageInfo.url}}" bindload="imgLoaded"
+    binderror="imgError">
+  </image>
+</view>

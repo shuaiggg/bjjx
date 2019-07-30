@@ -1,0 +1,53 @@
+<!--common/component/whiteboard/whiteboard.wxml-->
+
+<view class="whiteboard-wrapper"
+      style="background:{{styleInfo.backgroundColor}};width: {{size.width}}px"
+      bindtap="onWhiteboardTap" bindtouchstart="touchStart"
+      bindtouchend="touchEnd" bindlongtap="onWhiteboardLongTap">
+    <view class="whiteboard" bindtap="onwhiteboardtap"
+          style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px"
+    >
+        <imageLayer page-info="{{pageInfo}}">
+        </imageLayer>
+        <canvasLayer
+                canDraw="{{canDraw}}"
+                drawing="{{drawing}}"
+                pageCount="{{pageCount}}"
+                showClear="{{showClear}}"
+                showPageCount="{{showPageCount}}"
+                finished="{{finished}}"
+                styleInfo="{{styleInfo}}"
+                page-info="{{pageInfo}}"
+                bind:maskTap="onWhiteboardTap"
+                bind:pageCountTap="onPageCountTap"
+                bind:clearTap="onClearTap"
+        >
+        </canvasLayer>
+    </view>
+
+<!--    <cover-image class="page-icon page-prev" hidden="{{!showPrev}}"
+                 src="/sdk/component/whiteboard/image/bjl_ic_ppt_prev@3x.png">
+    </cover-image>
+    <cover-image class="page-icon page-next" hidden="{{!showNext}}"
+                 src="/sdk/component/whiteboard/image/bjl_ic_ppt_next@3x.png">
+    </cover-image>-->
+
+
+    <cover-view class="clear"
+                bindtap="onClearTap" hidden="{{!drawing || !showClear}}">
+        <cover-image class="clear-icon"
+                     src="/sdk/component/whiteboard/image/bjl_ic_clearall@2x.png">
+        </cover-image>
+        <cover-view>
+            {{language.CLEAR}}
+        </cover-view>
+    </cover-view>
+
+    <maskCover show="{{showPptSelection}}">
+        <pptSelection
+                currentPage="{{currentPage}}"
+                bind:pptImageTap="onPptImageTap"
+        >
+        </pptSelection>
+    </maskCover>
+</view>

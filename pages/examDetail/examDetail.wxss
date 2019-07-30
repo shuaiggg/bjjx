@@ -1,0 +1,175 @@
+page, .page {
+  height: 100%;
+}
+
+.page__bd {
+  height: calc(100% - 152rpx);
+}
+
+.swiper-box {
+  width: 100%;
+  height: 70%;
+}
+
+#swiper {
+  height: 100%;
+}
+
+.welfare-box {
+  position: relative;
+  height: 100%;
+}
+
+.welfare-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 10rpx;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.exam-card {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.shadow-class {
+  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.active-scale {
+  transform: scale(0.9);
+  -webkit-transform: scale(0.9);
+  transition: all .5s linear;
+  -webkit-transition: all .5s linear;
+}
+.bottom_img{
+  flex: 1;
+}
+.top-img, .bottom_img {
+  font-size: 0;
+}
+
+.top-img image, .bottom_img image {
+  width: 100%;
+  height: auto;
+}
+
+.exam-card .bottom-btn {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 32rpx;
+  color: #1773f8;
+  text-align: center;
+  border-top: 1px solid #e7e7e7;
+  left: 50%;
+  bottom: 0;
+}
+
+#horizontal-tab {
+  height: 88rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+#horizontal-tab .active {
+  color: #343434;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.tab-name {
+  position: relative;
+  text-align: center;
+}
+
+.selected-line {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -4px;
+  width: 0;
+  height: 0;
+  transform: rotate(225deg);
+  border-width: 8px;
+  border-color: #f26e1b #fff #fff #f26e1b;
+  border-style: solid;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+::-webkit-scrollbar {
+  width: 12rpx;
+  height: 12rpx;
+  background-color: #fff;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 20rpx rgba(0, 0, 0, 0.3);
+  /* border-radius: 20rpx; */
+  background-color: #c2c2c2;
+}
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20rpx;
+  -webkit-box-shadow: inset 0 0 20rpx rgba(0, 0, 0, 0.3);
+  background-color: #6d6d6d;
+}
+
+.exam-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 80rpx;
+  margin-left: -40%;
+  width: 80%;
+  height: 90rpx;
+  line-height: 90rpx;
+  color: #fff;
+  background: #f26e1b;
+  text-align: center;
+  border-radius: 45rpx;
+}
+
+.btn-group{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+}
+.alert-success{
+  width: 60%;
+  padding: 84rpx 0;
+  background: #fff;
+  text-align: center;
+  color: #747474;
+  font-size: 22rpx;
+  border-radius: 10rpx;
+}
+.alert-success image{
+  display: block;
+  margin: 0 auto 42rpx auto;
+  width: 32%;
+  height: auto;
+}
+.alert-success view{
+  margin: 0 auto;
+  width: 74%;
+}

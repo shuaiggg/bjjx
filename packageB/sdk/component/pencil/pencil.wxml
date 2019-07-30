@@ -1,0 +1,10 @@
+<image hidden="{{drawing}}" src="./image/bjl_ic_lightpen@3x.png"
+       class="pencil-image" mode="scaleToFill"
+       bindtap="onPencilTap"
+>
+</image>
+<image hidden="{{!drawing}}" src="./image/bjl_ic_lightpen_on@3x.png"
+       class="pencil-image" mode="scaleToFill"
+       bindtap="onPencilTap"
+>
+</image>

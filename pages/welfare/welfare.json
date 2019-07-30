@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "简公益",
+  "usingComponents": {
+    "header": "../components/header/header",
+    "wux-animation-group": "../components/animation-group/index"
+  },
+  "disableScroll": true
+}

@@ -1,0 +1,1 @@
+module.exports=function(r,e,n){if(!r)return-1;for(var t,u=0;t=r[u++];)if(t[e]==n)return t;return-1};

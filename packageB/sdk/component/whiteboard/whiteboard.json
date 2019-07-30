@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "imageLayer": "imageLayer/imageLayer",
+    "canvasLayer": "canvasLayer/canvasLayer",
+    "pptSelection": "pptSelection/pptSelection",
+    "maskCover": "../maskCover/maskCover"
+  }
+}

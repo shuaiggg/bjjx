@@ -1,0 +1,15 @@
+<!--common/component/whiteboard/whiteboard.wxml-->
+
+<view class="whiteboard-wrapper rotate-screen" style="background:{{styleInfo.backgroundColor}};width: {{size.width}}px" bindtap="onWhiteboardTap" bindtouchstart="touchStart" bindtouchend="touchEnd" bindlongtap="onWhiteboardLongTap">
+  <view class="whiteboard" bindtap="onWhiteboardTap" style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px">
+    <imageLayer page-info="{{pageInfo}}" style="width: {{pageInfo.width}}px;height:{{pageInfo.height}}px">
+    </imageLayer>
+    <canvasLayer styleInfo="{{styleInfo}}" page-info="{{pageInfo}}" bind:maskTap="onWhiteboardTap">
+    </canvasLayer>
+  </view>
+
+  <maskCover show="{{showPptSelection}}">
+    <pptSelection currentPage="{{currentPage}}" bind:pptImageTap="onPptImageTap">
+    </pptSelection>
+  </maskCover>
+</view>

@@ -1,0 +1,15 @@
+/* pages/pay/pay.wxss */
+.fenge-title {border-bottom:0.5px solid #f0f0f0;}
+.flex-bottm-price{text-align: left;} 
+.pay-box{position: absolute;bottom:0;right: 0;width: 100%;}
+.pay-sum{flex-basis:15%;line-height: 46px;padding-left: 15px;background: #f0f0f0;}
+.pay-btn{line-height: 46px;text-align: center;background: #e51c23;color: #fff;}
+
+.weui-cell_access{font-size: 14px;}
+.weui-cell {padding:18px 15px;}
+.my-cell{padding: 26rpx;}
+
+.weui-cell:before{border-top: 0;}
+.weui-cell:after{content:" ";position:absolute;left:0;bottom:0;right:0;height:1rpx;border-bottom: 1rpx solid #e5e5e5;}
+.fenge-bg:after{content:" ";position:absolute;left:0;bottom:0;right:0;height:1rpx;border-bottom: 1rpx solid #e5e5e5;}
+.weui-cells:after{border-bottom: 1rpx solid #e5e5e5;}

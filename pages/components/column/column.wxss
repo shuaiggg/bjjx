@@ -1,0 +1,10 @@
+/* 分割块儿 */
+@import "../../../weui.wxss";
+
+.clear-box{clear: both}
+.fenge-box{padding: 16rpx 30rpx 16rpx 30rpx;font-size: 32rpx;}
+.fenge-more{text-align: right;color: #6d6d6d;line-height: 60rpx;}
+.fenge-icon{display: inline-block;padding: 4rpx 10rpx 0 0;width: 40rpx;
+  height: 40rpx;vertical-align: top;}
+.fenge-title{display: inline-block;font-weight: bold;color: #3f3f3f;
+line-height: 40rpx;font-size: 34rpx;}

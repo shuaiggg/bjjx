@@ -1,0 +1,1 @@
+module.exports=function(n,e){return null==e&&(e=2),new Array(e-(""+n).length+1).join("0")+n};

@@ -1,0 +1,9 @@
+<scroll-view scroll-x class="ppt-scroll-wrapper">
+    <view wx:for="{{pptList}}" wx:key="page"
+          bindtap="onImageTap" data-item="{{item}}"
+          class='image-wrapper {{item.activeClass}}'>
+        <image src="{{item.url}}"
+               style="width:{{styleInfo.imageWidth}}px;height:{{styleInfo.imageHeight}}px;"></image>
+        <view class='page-num'>{{item.page}}</view>
+    </view>
+</scroll-view>

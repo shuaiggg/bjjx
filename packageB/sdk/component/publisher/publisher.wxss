@@ -1,0 +1,43 @@
+/* sdk/component/publisher/publisher.wxss */
+.live-pusher {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.player-name {
+    position: absolute;
+    bottom: 3px;
+    text-align: center;
+    width: 100%;
+    color: white;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.player-loading {
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    width: 100%;
+    color: white;
+    z-index: 10;
+}
+
+.cover-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+.player-cover {
+    opacity: 0.1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 20;
+}

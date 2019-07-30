@@ -1,0 +1,41 @@
+@import "../../../weui.wxss";
+
+.weui-panel{margin-top: 0;}
+.weui-media-box{align-items: flex-start;padding:10px;
+border:1rpx solid #ebebeb;margin:10px;box-shadow: 1px 1px 10px rgba(200,200,200,0.3);
+-webkit-box-shadow:1px 1px 10px rgba(200,200,200,0.3);
+ }
+.weui-media-box__hd_in-appmsg{position: relative;width: 300rpx;height:180rpx;
+border-radius:12rpx;overflow: hidden;
+}
+.my-media-box__title{position: relative;height: 72rpx;font-size: 30rpx;color: #333;
+line-height: 36rpx;margin-bottom: 70rpx;}
+.weui-media-box__desc, .weui-media-box__info{ color: #6d6d6d;font-size: 30rpx;}
+.my-media-box__info{color: #ff0000;}
+.flex-bottm{display: flex;color: #999999;}
+.flex-bottm-item{flex: none;}
+
+.left-title{
+  flex-basis: 46%;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  word-wrap:break-word;
+  word-break:break-all;
+  overflow:hidden;
+}
+
+.right-title{text-align: right;flex-basis: 54%;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  word-wrap:break-word;
+  word-break:break-all;
+  overflow:hidden;}
+.right-color{color: #999999;}
+.right-title-color{color: #f2701c;}
+
+.techer-img{margin-right:5px;width: 36rpx;height: 36rpx;border-radius: 50%;vertical-align: text-bottom;}
+
+/* 正在直播 */
+.is-live{position: absolute;bottom:24rpx;height: 44rpx;line-height: 44rpx;left: 0;color: #f2701c;padding: 0;font-size: 26rpx;}
+.playing-img{display: inline-block;width: 24rpx;height: 24rpx;vertical-align: middle;}
+

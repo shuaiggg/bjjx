@@ -1,0 +1,10 @@
+<!--common/component/loading.wxml-->
+<view  hidden="{{roomLoadEnded}}" class="loading-content">
+    <image class='loading-img' src="{{logoSrc}}"></image>
+    <progress class='loading-progress' percent="0" active-mode='forwards'
+              active show-info="{{styleInfo.showInfo}}"
+              stroke-width="{{styleInfo.strokeWidth}}"
+    percent='{{progress}}' activeColor='{{styleInfo.activeColor}}'
+              backgroundColor='{{styleInfo.backgroundColor}}' />
+    <text class="loading-text">{{statusTips}}</text>
+</view>

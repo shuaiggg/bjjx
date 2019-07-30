@@ -1,0 +1,22 @@
+
+<view bindtap='_goUrl' class="weui-media-box weui-media-box_appmsg">
+    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg" style='padding:0;'>
+        <image class="weui-media-box__thumb" src="{{lImg}}" />
+    </view>
+    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+        <view class="my-media-box__title">{{title}}
+          <view wx:if="{{isLive}}" class='handle is-live'>正在直播
+            <image class='playing-img' src='https://wx.jianxuejy.net/static/icon/ui/living2.png'></image>
+          </view>
+        </view>
+        <slot name="before"></slot>
+        <view class="weui-media-box__desc">
+          <view class='flex-bottm'>
+            <view class='flex-bottm-item left-title'>
+              <image wx:if="{{sImg !== ''}}" class='techer-img' src="{{sImg}}"></image>{{lTitle}}
+            </view>
+            <view class='flex-bottm-item right-title {{rColor}}'>{{rTitle == '￥0' ? '免费' : rTitle}}</view>
+          </view>
+        </view>
+    </view>
+</view>

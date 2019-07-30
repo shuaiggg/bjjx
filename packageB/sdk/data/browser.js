@@ -1,0 +1,1 @@
+var viewportWidth=require("cc/function/viewportWidth"),viewportHeight=require("cc/function/viewportHeight");exports.devicePixelRatio=void 0!==window.devicePixelRatio?window.devicePixelRatio:1,exports.getDeviceWidth=function(){return viewportWidth()},exports.getDeviceHeight=function(){return viewportHeight()};

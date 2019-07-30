@@ -1,0 +1,23 @@
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header> 
+  <view class="page__bd">
+    <view class='giving-box'>
+      <image mode='widthFix' src='https://wx.jianxuejy.net/static/icon/christmas/bj_02.jpg'></image>
+    </view>
+
+    <block wx:for="{{2}}" wx:key="{{index}}">
+      <view class='giving-box'>
+        <image mode='widthFix' src='https://wx.jianxuejy.net/static/icon/christmas/bj_0{{index+3}}.jpg'></image>
+        <view class='people-num'>1w+人参与</view>
+        <button wx:if="{{hasPhoneNumber === ''}}" hover-class='none' class="giving-phone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">参与活动</button>  
+      <navigator wx:else class="giving-href" url="../activity/activity?item={{index === 0 ? 'shengdan1' : 'yuandan'}}&avatarUrl={{avatarUrl}}&nickName={{nickName}}&phone={{hasPhoneNumber}}" hover-class="navigator-hover">参与活动</navigator> 
+    </view>
+    </block>
+    
+    <view class='giving-box'>
+       <image mode='widthFix' src='https://wx.jianxuejy.net/static/icon/christmas/bj_05.jpg'></image> 
+       
+    </view>
+  </view>
+</view>

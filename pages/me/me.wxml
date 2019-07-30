@@ -1,0 +1,85 @@
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view class="page__bd">
+    <view wx:if="{{hasUserInfo}}" class="weui-cells weui-cells_after-title">
+        <navigator url="../information/information?from=me" class="weui-cell weui-cell_access my-cell">
+            <view class="weui-cell__hd">
+                <image class='rows-icon user-icon' src="{{avatarUrl}}"></image>
+            </view>
+            <view class="weui-cell__bd nick-name">{{nickName}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <view class='fenge-bg'></view>
+        <navigator url="../category/category?type=200" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/choose.png"></image>
+            </view>
+            <view class="weui-cell__bd">课程选择</view>{{categoryText}}
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <view class='fenge-bg'></view>
+        <navigator wx:if="{{categoryType != 0 }}" url="../receiveData/receiveData?type={{categoryType}}" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/receive_data.png"></image>
+            </view>
+            <view class="weui-cell__bd receive-data">领取资料
+              <image mode="widthFix" src='{{baseUrl}}/static/icon/ui/hot.png'></image>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="../list/list" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/crouse.png"></image>
+            </view>
+            <view class="weui-cell__bd">我的课程</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator wx:if="{{!showPay}}" url="../order/order" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/order.png"></image>
+            </view>
+            <view class="weui-cell__bd">我的订单</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator wx:if="{{!showPay}}" url="../coupon/coupon?couponType=allCoupon" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/coupon.png"></image>
+            </view>
+            <view class="weui-cell__bd">我的优惠券</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="../myComment/myComment" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/my_conmment.png">
+                </image>
+            </view>
+            <view class="weui-cell__bd">我的评论</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <view class='fenge-bg'></view>
+        <navigator wx:if="{{!showPay}}" url="../jianPay/jianPay" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/jian_pay.png"></image>
+            </view>
+            <view class="weui-cell__bd">简支付</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="../faq/faq" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/about.png"></image>
+            </view>
+            <view class="weui-cell__bd">疑问解答</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="../feedback/feedback" class="weui-cell weui-cell_access">
+            <view class="weui-cell__hd">
+                <image class='rows-icon' src="{{baseUrl}}/static/icon/ui/feedback.png"></image>
+            </view>
+            <view class="weui-cell__bd">意见反馈</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+    </view>
+  </view>
+</view>
+

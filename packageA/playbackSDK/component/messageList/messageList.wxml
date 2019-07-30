@@ -1,0 +1,73 @@
+<!--common/component/messageList/messageList.wxml-->
+
+<template name="emoji">
+  <view wx:if="{{url}}">
+    <image src="{{url}}" style="width: 32px;height: 32px" mode="scaleToFill">
+    </image>
+  </view>
+  <view wx:if="{{!url}}">
+    不支持的表情
+  </view>
+</template>
+
+<template name="image">
+  <image src="{{url}}" bindtap="imageTap" data-src="{{url}}" data-width="{{width}}" data-height="{{height}}" mode='widthFix' style="width:100px;">
+  </image>Î
+</template>
+
+<template name="text">
+  <text class="text-content">{{content}}</text>
+</template>
+
+<template name="link">
+  <navigator url="/page/window/window?url={{link}}" hover-class="navigator-hover">
+    {{content}}
+  </navigator>
+</template>
+
+<scroll-view class="message-list" scroll-into-view='{{lastMessageElId}}' bindscroll="onMessageScroll" upper-threshold='-100' lower-threshold='-100' scroll-y="true" scroll-x="false">
+  <view class='message-wrapper' wx:for="{{messageData}}" wx:key="index">
+    <view class="bjy-view-divider" wx:if="{{index > 0 && item.needDivider}}">
+      <view class='divider-line'></view>
+      <view class='divider-time'>
+        {{item.time}}
+      </view>
+      <view class='divider-line'></view>
+    </view>
+    <view id="message{{item.id}}" class='message-flex-container'>
+      <image class='avatar' src='{{item.user.avatar}}'></image>
+      <view class='main-content'>
+        <view class='sender-info'>
+          <text class='{{item.user.roleName}} sender-name' style="color:{{fromColor}}">{{item.user.name}}</text>
+          <text class='send-time'>{{item.time}}</text>
+        </view>
+        <view style="background:{{styleInfo.messageBackground}}" class="bjy-message-item" data-role="{{item.user.roleName}}">
+          <view class="bjy-custom-message" wx:if="{{item.custom}}">
+            {{item.content}}
+          </view>
+          <view class="bjy-content" style="color:{{styleInfo.contentColor}}">
+            <template is="{{item.type}}" data="{{...item}}" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <view class='empty-image' hidden="{{messageData.length != 0}}">
+    <image mode="widthFix" style="width: 84px" src="./img/message-list-empty-dark@2x.png"></image>
+  </view>
+</scroll-view>
+
+<cover-view class="image-mask-wrapper" bind:tap="onImageMaskTap" hidden="{{!showImageMask}}">
+  <cover-view class="image-mask" style="min-height: {{zoomImage.height}}px">
+  </cover-view>
+  <cover-view class='image-container' style="min-width:{{zoomImage.width}}px;min-height: {{zoomImage.height}}px">
+    <cover-image class="image-zoomed" src="{{zoomImage.url}}" style="width:{{zoomImage.width}}px;height: {{zoomImage.height}}px">
+    </cover-image>
+  </cover-view>
+</cover-view>
+<view class='teacher-only-view'>
+  <radio class="radio" checked="{{teacherOnly}}" bindtap='toggleTeacherOnly'>
+    <text>{{language.BUTTON_ONLY_SHOW_MESSAGE_ABOUT_TEACHER}}</text>
+  </radio>
+</view>

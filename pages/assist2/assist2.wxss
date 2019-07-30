@@ -1,0 +1,133 @@
+/* pages/assist/assist.wxss */
+.page__bd{
+  height: 100vh;
+  background: url(https://wx.jianxuejy.net/static/icon/christmas/bg_01.jpg);
+}
+.tou-tu{
+  width: 100%;
+  font-size: 0;
+}
+.tou-tu image{
+  width: 100%;
+}
+.assist-foot{
+  padding: 15px 0;
+  color: #444;
+}
+.assist-foot .assist-inner{
+  position: relative;
+  top: -10rpx;
+  width: 90%;
+  padding: 40rpx 0;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  z-index: 100;
+}
+.lead{
+  margin: 0 0 20rpx 0;
+  text-align: center;
+}
+.lead image{
+  display: block;
+  margin: 0 auto;
+  width: 16vw;
+  height: 16vw;
+  border-radius: 8vw;
+}
+.friend-box{
+  padding: 15px 8% 24px 8%;
+  border-top: 5rpx dotted #ddd;
+}
+.friend-item{
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+.friend-text{
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.empty{
+  margin: 0 5px;
+  flex-basis: 12vw;
+  height: 12vw;
+  border-radius: 60%;
+  border: 2rpx dotted #fff;
+  font-size: 40rpx;
+  line-height: 12vw;
+  text-align: center;
+  overflow: hidden;
+}
+.empty image{
+  width: 100%;
+}
+.border-class{
+  border: 2rpx solid #666;
+}
+.unlock{
+  margin: 0 auto;
+  width: 80%;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #00a57f;
+  border-radius: 10rpx;
+  text-align: center;
+  box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.assisted-title{
+  margin: 30rpx 0 16rpx 0;
+  font-size: 34rpx;
+}
+.assisted-box{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.assisted-box image{
+  flex-basis: 10vw;
+  height: 10vw;
+  border-radius: 5vw;
+  margin-right: 26rpx;
+}
+.helped{
+  background: #6d6d6d;
+}
+.go-home{
+  margin-top: 20rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.up-box{
+  margin: 40rpx 0 100rpx 0;
+  font-size: 36rpx;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+.up-num{
+  display: inline;
+  color: #ffc600;
+}
+.btn-group{
+  display: flex;
+  margin: 0 6%;
+  justify-content: center;
+  align-items: center;
+}
+.btn-group button, .btn-group navigator{
+  flex-basis: 46%;
+  margin: 0 2%;
+  background: #ffc600;
+  color: #fff;
+  line-height: 72rpx;
+  height: 72rpx;
+  font-size: 34rpx;
+  border-radius: 12rpx;
+  text-align: center;
+  box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.5);
+  
+}

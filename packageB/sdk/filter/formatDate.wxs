@@ -1,0 +1,80 @@
+var lpad = require('./lpad.wxs');
+
+function simplifyDate(time) {
+    if (time) {
+        var date = getDate(time);
+
+        return {
+            year: date.getFullYear(),
+            month: date.getMonth() + 1,
+            date: date.getDate(),
+            day: date.getDay(),
+            hour: date.getHours(),
+            minute: date.getMinutes(),
+            second: date.getSeconds()
+        };
+    }
+    else {
+        return '';
+    }
+}
+
+module.exports = {
+    getDate: function (time, sep) {
+        var date = simplifyDate(time);
+
+        if (date) {
+            return [
+                date.year,
+                lpad(date.month),
+                lpad(date.date)
+            ].join(sep || '-');
+        }
+
+        return '';
+    },
+
+    getTime: function (time, hasSecond, sep) {
+        var date = simplifyDate(time);
+
+        if (date) {
+            var list = [
+                lpad(date.hour),
+                lpad(date.minute)
+            ];
+
+            if (hasSecond) {
+                list.push(
+                    lpad(date.second)
+                );
+            }
+
+            return list.join(sep || ':');
+        }
+
+        return '';
+    },
+
+    getFullTime: function (time, hasSecond) {
+        var date = simplifyDate(time);
+
+        if (date) {
+            var timeList = [
+                lpad(date.hour),
+                lpad(date.minute)
+            ];
+
+            if (hasSecond) {
+                timeList.push(
+                    lpad(date.second)
+                );
+            }
+
+            return [date.year, lpad(date.month), lpad(date.date)].join('-')
+                + ' '
+                + timeList.join(':');
+        }
+
+        return '';
+    }
+};

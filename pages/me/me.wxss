@@ -1,0 +1,29 @@
+/* pages/me/me.wxss */
+.weui-cell__bd .login-btn {position: static;display:block;margin: 0;padding: 0;
+  font-size:14px;text-align:left;background:#fff;
+}
+.rows-icon{margin-right: 10px;vertical-align: middle;width:20px; height: 20px;}
+.user-icon{width:50px; height: 50px;border-radius:50%;}
+
+.kefu-btn{margin:0;padding:0;line-height:inherit;text-align:left;
+  background:none;font-size:14px;color:inherit;
+}
+.weui-cell_access{font-size: 14px;}
+.weui-cell {padding:18px 15px;}
+.my-cell{padding: 20px;}
+
+.weui-cell:before{border-top: 0;}
+.weui-cell:after{content:" ";position:absolute;left:0;bottom:0;right:0;height:1rpx;border-bottom: 1rpx solid #e5e5e5;}
+.fenge-bg:after{content:" ";position:absolute;left:0;bottom:0;right:0;height:1rpx;border-bottom: 1rpx solid #e5e5e5;}
+.weui-cells:after{border-bottom: 1rpx solid #e5e5e5;}
+
+.nick-name{padding-left: 20rpx;font-size: 36rpx;}
+
+.receive-data{
+  color: red !important;
+}
+.receive-data image{
+  display: inline-block;
+  width: 44rpx;
+  vertical-align: text-bottom;
+}

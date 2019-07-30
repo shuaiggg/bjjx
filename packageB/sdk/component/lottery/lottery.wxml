@@ -1,0 +1,32 @@
+<!--sdk/component/lottery/lottery.wxml-->
+<view class='bjy-lottery-view'>
+  <canvas wx:if='{{showList}}' canvas-id='canvasLotteryList' class='bjy-lottery-canvas'>
+    <!-- 点击关闭遮罩 -->
+    <cover-view class='bjy-mask-cover' bindtap='onLotteryCloseTap'></cover-view>
+    <!-- 列表主体 -->
+    <cover-view animation='{{minifyAnimation}}' class='bjy-lottery-container'>
+      <cover-image class='bjy-lottery-head-image' src='./img/lottery-banner@3x.png'></cover-image>
+      <cover-image class='bjy-lottery-close' src='./img/lottery-close@3x.png' bindtap='onLotteryCloseTap'></cover-image>
+      <cover-view class="bjy-lottery-body {{lotteryList.length < 3 ? 'bjy-column-flex-container' : ''}}">
+        <block wx:if='{{lotteryList.length}}'>
+          <cover-view wx:for='{{lotteryList}}' class='bjy-lottery-item' wx:key='{{index}}'>{{item.name}}</cover-view>
+        </block>
+        <cover-view wx:else class='bjy-lottery-item'>{{language.LABEL_LOTTERY_NO_RECORD}}</cover-view>
+      </cover-view>
+      <cover-view class='bjy-lottery-footer'>
+        <!-- 小程序css不能识别border-bottom-left-radius等属性，此处多加一个元素盖住border-raduis -->
+        <cover-view class='border-fix'></cover-view>
+        <cover-view class='footer-text'>
+          {{lotteryList.length ? (language.LABEL_LOTTERY_ABOVE + lotteryList.length + language.LABEL_LOTTERY_GOT + lotteryName) : (language.LABEL_LOTTERY_NOBODY_GOT + lotteryName)}}
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </canvas>
+
+  <canvas wx:if='{{showBox}}' canvas-id='canvasLotteryBox' class='bjy-lottery-box-canvas'>
+    <cover-image animation='{{zoomAnimation}}' class='bjy-lottery-box-image' src='./img/lottery-hint@3x.png'></cover-image>
+  </canvas>
+  <!-- iOSbug，开启动画后点击事件无效 -->
+  <canvas wx:if='{{showBox}}' canvas-id='canvasLotteryBox1' class='bjy-lottery-box-canvas' bindtouchstart='onLotteryBoxTap'>
+  </canvas>
+</view>

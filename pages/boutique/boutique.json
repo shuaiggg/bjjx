@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "header": "../components/header/header",
+    "column": "../components/column/column",
+    "comlist": "../components/comlist/comlist",
+    "wux-refresher": "../components/refresher/index"
+  }
+}

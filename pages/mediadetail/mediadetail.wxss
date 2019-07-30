@@ -1,0 +1,16 @@
+/* pages/playback/playback.wxss */
+page, .page{height: 100%;}
+.page__bd{height: 53%;}
+.course-introduction{height: 100%;}
+.payFor{position: fixed;right: 0;bottom:0;width:100%;border-radius: 0;
+background: #f79649;margin: 0;color: #fff;border:none;text-align: center;line-height: 92rpx;}
+/* .front-cover{height: 36%;} */
+.front-cover-img{position: relative;width: 100%;}
+.question{width: 100%;}
+
+.pay-box{position: absolute;bottom:0;right: 0;width: 100%;}
+.pay-sum{flex-basis:15%;line-height: 46px;padding-left: 15px;background: #f0f0f0;}
+.pay-btn{line-height: 46px;text-align: center;background: #e51c23;color: #fff;}
+
+.form-id{height: 46px;}
+.form-id button{height: 46px;text-align: center;line-height: 46px;}

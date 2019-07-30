@@ -1,0 +1,27 @@
+.loading-content {
+  text-align: center;
+  width: 85%;
+  transform: translate3d(-50%, 0, 0);
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-img {
+  width: 345px;
+  height: 120px;
+  padding-bottom: 40rpx;
+}
+
+.loading-text {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+
+.loading-progress {
+  width: 100%;
+}

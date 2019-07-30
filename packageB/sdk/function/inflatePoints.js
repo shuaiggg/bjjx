@@ -1,0 +1,1 @@
+var base64=require("./base64").map,util=require("../util");function decode(e){return{x:(64*base64[e.charAt(0)]+base64[e.charAt(1)])/4095,y:(64*base64[e.charAt(2)]+base64[e.charAt(3)])/4095}}module.exports=function(e){var r=e.points;if(util.is.string(r)){if(2==e.encodeType){for(var t=[],a=0,s=r.length;a<s;a+=4)t.push(decode(r.substr(a,4)));return t}return JSON.parse(r)}return r};

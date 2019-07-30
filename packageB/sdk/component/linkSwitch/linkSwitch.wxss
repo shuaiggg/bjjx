@@ -1,0 +1,22 @@
+.link-switch {
+}
+.options-wrapper {
+    padding: 10px;
+    background: #333333;
+    color: white;
+    opacity: 0.7;
+/*  position: absolute;*/
+    right: 54px;
+    top:10px;
+}
+.options-trigger {
+    width: 54px;
+    height: 54px;
+}
+.options {
+    line-height: 30px;
+}
+.options.active {
+    color: #1795FF;
+}
+

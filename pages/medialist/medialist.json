@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "header": "../components/header/header",
+    "comlist": "../components/comlist/comlist",
+    "column": "../components/column/column"
+  }
+}

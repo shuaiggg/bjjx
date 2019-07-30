@@ -1,0 +1,24 @@
+/* sdk/component/handup/handup.wxss */
+.wrapper {
+    width: 36px;
+    height: 36px;
+}
+
+.image {
+    width: 36px;
+    height: 36px;
+}
+
+.waiting .image {
+    width: 34px;
+    height: 34px;
+    border-radius: 18px;
+    border: 1px solid #55a3ef;
+}
+
+/*.waiting {
+    border-radius:18px;
+    border:1px solid blue;
+    text-align:center;
+    font-size:12px;
+}*/

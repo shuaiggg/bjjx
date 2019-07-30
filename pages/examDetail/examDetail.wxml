@@ -1,0 +1,50 @@
+<wux-backdrop id="wux-backdrop" />
+<!-- 首页引导 -->
+<view wx:if="{{isAlert}}" class="btn-group guide-box" style="top:{{474}}rpx;">
+    <view class="alert-success" catchtap="closeAlert">
+      <image src='{{baseUrl}}/static/icon/ui/success.svg' mode='widthFix'></image>
+      <view>提交成功,请耐心等待,</view>
+      <view>会有老师给你打电话提供专业指导</view>
+    </view>
+</view>
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view class="page__bd">
+    <swiper id="horizontal-tab" current="{{active}}" previous-margin="{{'280rpx'}}" next-margin="{{'280rpx'}}">
+      <block wx:for="{{tabArr}}" wx:key="{{index}}">
+        <swiper-item catchtouchmove="stopTouchMove">
+          <view class="horizontal-tab-item {{index === active ? 'active' : ''}}">
+            <view class="tab-name" data-num="{{index}}" bindtap='clickTab'>{{item}}
+              <view class="{{index === active ? 'selected-line' : ''}}"></view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 轮播图 -->
+    <view class='swiper-box'>
+      <swiper id="swiper" current="{{active}}" previous-margin="{{'80rpx'}}" next-margin="{{'80rpx'}}" bindchange="sliderChange">
+        <block wx:for="{{sliderArr}}" wx:key="{{index}}">
+          <swiper-item>
+            <view class="welfare-box">
+              <view class="welfare-wrapper">
+                <view class="exam-card shadow-class {{active !== index ? 'active-scale' : ''}}">
+                  <view class="top-img"><image mode='widthFix' src="{{baseUrl}}/static/images/exam_0{{item.status}}.jpg"></image></view>
+                  <scroll-view class="bottom_img" scroll-y style="height: 200px;">
+                    <image mode='widthFix' src="{{baseUrl}}{{item.img_path}}"></image>
+                  </scroll-view>
+                  <view wx:if="{{tabArr[index] === '考试科目' && mall_status === 1}}" bindtap="goBack" class="bottom-btn">查看优选班级></view>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <button wx:if="{{phoneNumber === ''}}" class="exam-btn" bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber">点击咨询</button>  
+    <button wx:else class="exam-btn" bindtap="connect">点击咨询</button>  
+  </view>
+</view>

@@ -1,0 +1,1 @@
+var camelCase=require("./camelCase");function camelCaseObject(e){var a={};for(var c in e)a[camelCase(c)]="object"==typeof e[c]?camelCaseObject(e[c]):e[c];return a}module.exports=camelCaseObject;

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "回放",
+  "usingComponents": {
+    "header": "../components/header/header",
+    "comment-list": "../components/comment-list/comment-list",
+    "column": "../components/column/column",
+    "wux-animation-group": "../components/animation-group/index",
+    "wux-backdrop": "../components/backdrop/index"
+  }
+}

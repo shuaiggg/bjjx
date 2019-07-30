@@ -1,0 +1,77 @@
+/* pages/teacherPlayer/teacherPlayer.wxss */
+.player {
+  position: absolute;
+  right: 0;
+  width: 160px;
+  height: 90px;
+}
+
+
+.button {
+    position: absolute;
+    bottom: 100px;
+    right: 10px;
+}
+.control-btns{
+  position:absolute;
+  right:0;
+  bottom:0;
+  display: none;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  font-size: 26rpx;
+  z-index:11;
+  opacity: 0;
+  border-top-left-radius: 6rpx;
+  border-bottom-left-radius: 6rpx;
+}
+.control-btns view{
+  height: 70rpx;
+  padding: 0 20rpx;
+  line-height: 70rpx;
+}
+
+.show-control{
+  display: flex;
+  display: -webkit-flex;
+  opacity: 1;
+  transition: all 1s linear;
+  -webkit-transition: all 1s linear;
+}
+.message-list{
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.send-message{
+  position:absolute;
+  width:100%;
+  right:0;
+  bottom:0;
+}
+.whiteboard-wrap{
+  position: relative;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+}
+.whiteboard-wrap-full{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 100 
+}
+.whiteboard-rotate{
+  transform: rotate(90deg) scale(1.5);
+  -webkit-transform: rotate(90deg) scale(1.5);
+  transtion: transform .3s linear;
+  -webkit-transtion: transform .3s linear;
+}

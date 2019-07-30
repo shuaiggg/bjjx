@@ -1,0 +1,18 @@
+<import src="../common/prompt/prompt.wxml"/>
+<view class="page">
+  <header id="header" title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view wx:if="{{commentArr.length > 0}}">
+    <block wx:for="{{commentArr}}" wx:key="{{index}}">
+      <view class="my-comment">
+        <view class="myself">我<view class="my-time">{{item.create_time}}</view></view>
+        <navigator class="go-detail" url="/pages/playback/playback?id={{item.course_id}}">查看详情</navigator>
+        <view class="comment-body">
+          <view class="comment-content">{{item.content}}</view>
+          <view wx:if="{{item.children}}" class="comment-replay">管理员<view>： {{item.children[0].content}}</view></view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <template wx:else is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+
+</view>

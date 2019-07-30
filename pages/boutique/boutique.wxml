@@ -1,0 +1,46 @@
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <!-- 顶部固定nav -->
+  <view class="stick-nav" style="top:{{152 + navigaHeight}}rpx;">
+    <!-- tabs选项卡 -->
+    <scroll-view class="scroll-view_H" scroll-x scroll-with-animation scroll-into-view="{{intoView}}">
+      <block wx:for="{{category1}}" wx:key="{{index}}">
+        <view id="id{{item.id}}" data-into="{{item.id}}" bindtap='askCourses' class="scroll_H_item {{current === item.id ? 'selected' : ''}}">{{item.name}}
+          <view class="{{current === item.id ? 'selected-line' : ''}}"></view>
+        </view>
+      </block>
+    </scroll-view>
+    <!-- 二级tabs -->
+    <view class='secondary-tabs'>
+      <view wx:if="{{allItem.length > 1}}" class='secondary-tab' bindtap="clickAll" data-serial="first">
+          <view class="secondary-tab-text {{active === true ? 'secondary-active' : ''}}">全部</view>
+      </view>
+      <block wx:for="{{secondaryTabs}}" wx:key="{{index}}">
+        <view class='secondary-tab' bindtap="secondaryTab" data-categoryid="{{item.id}}" data-serial="{{index}}">
+          <view class="secondary-tab-text {{item.active === true ? 'secondary-active' : ''}}">{{item.name}}</view>
+        </view>
+      </block>
+      <view wx:if="{{allItem.length > 3}}" class='secondary-tab' bindtap="clickMore" data-serial="last">
+          <view class="secondary-tab-text">{{arrowText}}
+            <view class="arrow-down">{{arrowDown ? '▼' : '▲'}}</view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <!-- 占位盒子 -->
+  <view style="height:220rpx;"></view>
+  <wux-refresher id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh">
+    <view class="page__bd">
+      <!-- tab内容区 -->
+      <view class="weui-tab__panel" style='padding-top:0;'>
+          <view class="weui-tab__content">
+            <view wx:if="{{freeCourse.length > 0}}">
+              <comlist bindtap="goPlayBackPay" data-serial="{{index}}" wx:for="{{freeCourse}}" wx:key="{{index}}" title="{{item.title}}" rColor="right-title-color" sImg="{{baseUrl}}{{item.photo}}" lImg="{{baseUrl}}{{item.largePicture}}" lTitle="{{item.name}}" rTitle="{{m1.filter.formStr(isIos,item.salePrice)}}"></comlist>  
+            </view>
+            <view class='jx-nothing' wx:else>暂无课程</view>
+          </view>
+      </view>
+    </view>
+  </wux-refresher>
+</view>
+<wxs module="m1" src="../../filter/common.wxs"></wxs>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "课程选择",
+  "usingComponents": {
+    "header": "../components/header/header"
+  },
+  "disableScroll": true
+}

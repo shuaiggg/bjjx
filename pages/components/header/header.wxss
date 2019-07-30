@@ -1,0 +1,134 @@
+.my-naviga {
+  position: fixed;
+  width: 100%;
+  height: 151rpx;
+  background: #fff;
+  z-index: 1011;
+  color: #333;
+  text-align: center;
+  border-bottom: 1rpx solid #efefef;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.my-naviga-title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.my-naviga-icon {
+  position: absolute;
+  height: 100%;
+  width: 152rpx;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.my-naviga-icon:before {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 6rpx 6rpx 0 0;
+  border-color: #333;
+  border-style: solid;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  position: absolute;
+  top: 50%;
+  left: 40rpx;
+  margin-top: -9rpx;
+}
+
+.my-naviga-text {
+  font-size: 38rpx;
+}
+
+.sanjiao {
+  display: inline-block;
+  margin-top: -6rpx;
+  height: 28rpx;
+  width: 28rpx;
+  background: url(https://wx.jianxuejy.net/static/icon/ui/nabla.png) no-repeat 0 0;
+  background-size: 100%;
+  vertical-align: middle;
+}
+
+.placeholder-box {
+  height: 152rpx;
+}
+
+.my-rotate {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+@-webkit-keyframes rotateIn {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    top: 52%;
+  }
+}
+
+@keyframes rotateIn {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    top: 52%;
+  }
+}
+
+.rotate-in {
+  -webkit-animation: rotateIn ease 0.3s forwards;
+  animation: rotateIn ease 0.3s forwards;
+}
+
+@-webkit-keyframes rotateOut {
+  0% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    top: 70%;
+  }
+}
+
+@keyframes rotateOut {
+  0% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    visibility: visible;
+  }
+
+  to {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    top: 70%;
+  }
+}
+
+.rotate-out {
+  -webkit-animation: rotateOut ease 0.3s forwards;
+  animation: rotateOut ease 0.3s forwards;
+}

@@ -1,0 +1,18 @@
+/**
+ * @file 数字左边补零
+ *
+ * @param {string} num
+ * @param {number} length 长度，如 01 表示长度为 2，001 表示长度为 3，默认为 2
+ * @return {string}
+ */
+module.exports = function (num, length) {
+    length = length == null ? 2 : length;
+
+    num = '' + num;
+
+    while (num.length < length) {
+        num = '0' + num;
+    }
+
+    return num;
+};

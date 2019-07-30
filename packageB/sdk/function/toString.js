@@ -1,0 +1,1 @@
+var $=require("../jquery");module.exports=function(r,e){var n=$.type(r);return"number"===n?r=""+r:"string"!==n&&(1===arguments.length&&(e=""),r=e),r};

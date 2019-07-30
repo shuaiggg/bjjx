@@ -1,0 +1,273 @@
+<import src="../common/prompt/prompt.wxml"/>
+<!-- 引导蒙层 -->
+<wux-backdrop id="wux-backdrop" />
+<view wx:if="{{btnText === '立即报名'}}" class="guide-box" style="top: {{guidePosition}}px">
+  <view wx:if="{{isShowGuide}}" class="guide-box-inner">
+    <image class='guide-img' mode='widthFix' src='{{baseUrl}}/static/icon/ui/guide_img3.png'></image>
+    <view class="guide-btn" bindtap="release" data-guided="guided3">我知道了</view>
+  </view>
+</view>
+<view wx:else class="guide-box" style="bottom: -10px;">
+  <view wx:if="{{isShowGuide}}" class="guide-box-inner">
+    <view class="guide-btn" style="margin:0 auto 30rpx auto;" bindtap="release" data-guided="guided2">我知道了</view>
+    <image class='guide-img' mode='widthFix' src='{{baseUrl}}/static/icon/ui/guide_img2.png'></image>
+  </view>
+</view>
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header> 
+  <view wx:if="{{videoUrl}}"  class='video-box'>
+      <video wx:if="{{showAa}}" autoplay id="myVideo" custom-cache="{{false}}" src="{{videoUrl}}">
+      </video>
+      <image wx:else class='front-cover-img' mode="aspectFill" src="{{baseUrl}}{{falseCover}}">
+        <button hover-class='none' class='falseCover' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          <image class='play-btn' src='../../image/yuanquan.png'></image>
+        </button>
+      </image>
+  </view>
+  <view class='front-cover' wx:else>
+    <image class='front-cover-img' bindload='imageLoad' mode="widthFix" src="{{baseUrl}}{{frontCover}}"></image>
+    <!-- 报名按钮 -->
+    <view class='payFor' wx:if="{{isShow}}">
+      <button
+        wx:if="{{isIos === true && btnText === '立即报名'}}" 
+        class="shart-btn disable-btn">根据规范IOS暂不支持
+      </button>
+
+      <view 
+        wx:elif="{{btnText === '立即报名' && isIos === false}}" 
+        class='shart-btn' bindtap="goPay">￥{{salePrice}} | {{btnText}}</view>
+      <button wx:else open-type='share' class='shart-btn' id="courseShare" hover-class='none'>{{btnText}}</button>
+    </view>
+  </view>
+  <view class="page__bd" style="height: {{pageBody}}px">
+    <!-- <column icon="{{baseUrl}}/static/icon/ui/shutiao.png" title="目录"></column> -->
+    <view class="mulu">目录
+      <view bindtap='toggle' class="changing-over"><image mode='widthFix' src="{{baseUrl}}/static/icon/ui/{{toggleIcon}}.svg"></image></view>
+    </view>
+    
+    <!-- 【垂直布局】 -->
+    <view class="catalog-list-horizontal" hidden="{{catalogType}}">
+      <!-- 【已购买】或【已分享解锁】或【免费课】 -->
+      <view wx:if="{{btnText === ''}}" class="weui-cells weui-cells_after-title">
+        <block wx:for="{{lessonInfo}}" wx:key="{{index}}">
+          <!-- 百家云直播&回放 -->
+          <view wx:if="{{item.type != 'normal'}}" class="weui-cell jx-cell">
+              <button wx:if="{{!showAa}}" hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="weui-cell__bd chapter-title jx-clamp">{{item.title}}
+              </button>
+              <view wx:else data-serile="{{index}}" bindtap="doLive" class="weui-cell__bd chapter-title jx-clamp">{{item.title}}</view>
+              <view class='seria'>{{index < 9 ? '0' : ''}}{{index + 1}}</view>
+              <view class='chapter-note'>{{item.beginTime}}-{{item.endTime}}</view> 
+              <view class='chapter-handle'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view> 
+          </view>
+          <!-- 正常课 -->
+          <view wx:else class="weui-cell jx-cell">
+              <view data-mediaid="{{item.mediaId}}" bindtap="doPlay" class="weui-cell__bd chapter-title jx-clamp">{{item.title}}</view>
+              <view class='seria'>{{index < 9 ? '0' : ''}}{{index + 1}}</view>
+              <view class='chapter-note'>时长：{{item.length}}分钟</view> 
+              <view class='chapter-handle'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view> 
+          </view>
+        </block>
+        <!-- 【固定查看更多】 -->
+        <view class="weui-cell jx-cell fix-down-app">
+          <view bindtap="downApp" class="weui-cell__bd chapter-title jx-clamp">查看更多</view>
+        </view>
+      </view>
+      <!-- 【未购买课程课表】 -->
+      <view wx:else class="weui-cells weui-cells_after-title">
+        <block wx:for="{{lessonInfo}}" wx:key="{{index}}">
+          <!-- 百家云直播&回放 -->
+          <view wx:if="{{item.type != 'normal'}}" class="weui-cell jx-cell">
+              <button wx:if="{{!showAa}}" hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="weui-cell__bd chapter-title jx-clamp">{{item.title}}
+              </button>
+              <view wx:else data-serile="{{index}}" bindtap="{{item.free == 0 ? 'doPrompt' : 'doLive'}}" class="weui-cell__bd chapter-title jx-clamp">{{item.title}}</view>
+              <view class='seria'>{{index < 9 ? '0' : ''}}{{index + 1}}</view>
+              <view class='chapter-note'>{{item.beginTime}}-{{item.endTime}}</view>
+              <!-- 【不免费】【可分享】课节 -->
+              <button wx:if="{{item.free === 0 && item.shareStatus === 'Yes'}}"  open-type='share' data-sectionid="{{item.id}}" data-serile="{{index}}" class='chapter-handle' id='lessonShare' hover-class="none">
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/fenxiang.png"></image>
+              </button>
+              <!-- 【免费】【不可分享】课节 -->
+              <view wx:elif="{{item.free === 1}}" class='chapter-handle'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view>
+              <!-- 【不免费】【不可分享】课节 -->
+              <view wx:else class='chapter-handle'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/suo.png"></image>
+              </view>
+          </view>
+          <!-- 正常课 -->
+          <view wx:else class="weui-cell jx-cell">
+              <view data-mediaid="{{item.mediaId}}" bindtap="{{item.free == 0 ? 'doPrompt' : 'doPlay'}}" class="weui-cell__bd chapter-title jx-clamp">{{item.title}}</view>
+              <view class='seria'>{{index < 9 ? '0' : ''}}{{index + 1}}</view>
+              <view class='chapter-note'>时长：{{item.length}}分钟</view> 
+              <!-- 【不免费】【可分享】课节 -->
+              <button wx:if="{{item.free === 0 && item.shareStatus === 'Yes'}}"  open-type='share' data-sectionid="{{item.id}}" data-serile="{{index}}" class='chapter-handle' id='lessonShare' hover-class="none">
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/fenxiang.png"></image>
+              </button>
+              <!-- 【免费】【不可分享】课节 -->
+              <view wx:elif="{{item.free === 1}}" class='chapter-handle'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view>
+              <!-- 【不免费】【不可分享】课节 -->
+              <view wx:else class='chapter-handle'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/suo.png"></image>
+              </view> 
+          </view>
+        </block>
+        <!-- 【固定查看更多】 -->
+        <view class="weui-cell jx-cell fix-down-app">
+          <view bindtap="downApp" class="weui-cell__bd chapter-title jx-clamp">查看更多</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 【水平布局】 -->
+    <view class="catalog-list-vertical" hidden="{{!catalogType}}">
+      <!-- [[[[[[已购买]或[已分享解锁]或[免费课]]]]]] -->
+      <scroll-view wx:if="{{btnText === ''}}" class="scroll-view_H vertical-view_H" scroll-x>
+        <block wx:for="{{lessonInfo}}" wx:key="{{index}}">
+          <!-- [百家云直播&回放] -->
+          <view wx:if="{{item.type != 'normal'}}" class="scroll_H_item vertical-section">
+            <view class="vertical-wraper">
+              <button wx:if="{{!showAa}}" hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="section-btn-phone">
+              </button>
+              <view class="section-icon">
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view>
+              <view data-serile="{{index}}" bindtap="doLive" class="section-right">
+                <view class="section-title">{{index < 9 ? '0' : ''}}{{index + 1}}{{item.title}}</view>
+                <view class='section-note'>{{item.beginTime}}-{{item.endTime}}</view>
+              </view>
+            </view>
+          </view>
+          <!-- [正常课] -->
+          <view wx:else class="scroll_H_item vertical-section">
+            <view class="vertical-wraper">
+              <view class="section-icon">
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view>
+              <view data-mediaid="{{item.mediaId}}" bindtap="doPlay" class="section-right">
+                <view class="section-title">{{index < 9 ? '0' : ''}}{{index + 1}}{{item.title}}</view>
+                <view class='section-note'>时长：{{item.length}}分钟</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <!-- [固定查看更多] -->
+        <view  class="scroll_H_item vertical-section">
+            <view class="vertical-wraper">
+              <view bindtap="downApp" class="section-right">
+                <view class="section-title down-app">查看更多</view>
+              </view>
+            </view>
+        </view>
+      </scroll-view>
+
+      <!-- [[[[[未购买课程课表]]]]]] -->
+      <scroll-view wx:else class="scroll-view_H vertical-view_H" scroll-x>
+        <block wx:for="{{lessonInfo}}" wx:key="{{index}}">
+          <!-- [百家云直播&回放] -->
+          <view wx:if="{{item.type != 'normal'}}" class="scroll_H_item vertical-section">
+            <view class="vertical-wraper">
+              <button wx:if="{{!showAa}}" hover-class='none' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="section-btn-phone">
+              </button>
+              <!-- 【不免费】【可分享】课节 -->
+              <button wx:if="{{item.free === 0 && item.shareStatus === 'Yes'}}"  open-type='share' data-sectionid="{{item.id}}" data-serile="{{index}}" class='section-icon' id='lessonShare' hover-class="none">
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/fenxiang.png"></image>
+              </button>
+              <!-- 【免费】【不可分享】课节 -->
+              <view wx:elif="{{item.free === 1}}" class='section-icon'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view>
+              <!-- 【不免费】【不可分享】课节 -->
+              <view wx:else class='section-icon'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/suo.png"></image>
+              </view>
+              <view data-serile="{{index}}" bindtap="{{item.free == 0 ? 'doPrompt' : 'doLive'}}" class="section-right">
+                <view class="section-title">{{index < 9 ? '0' : ''}}{{index + 1}}{{item.title}}</view>
+                <view class='section-note'>{{item.beginTime}}-{{item.endTime}}</view>
+              </view>
+            </view>
+          </view>
+
+          <!-- [正常课] -->
+          <view wx:else class="scroll_H_item vertical-section">
+            <view class="vertical-wraper">
+              <!-- 【不免费】【可分享】课节 -->
+              <button wx:if="{{item.free === 0 && item.shareStatus === 'Yes'}}"  open-type='share' data-sectionid="{{item.id}}" data-serile="{{index}}" class='section-icon' id='lessonShare' hover-class="none">
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/fenxiang.png"></image>
+              </button>
+              <!-- 【免费】【不可分享】课节 -->
+              <view wx:elif="{{item.free === 1}}" class='section-icon'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/bofang.png"></image>
+              </view>
+              <!-- 【不免费】【不可分享】课节 -->
+              <view wx:else class='section-icon'>
+                <image class='lock-icon' src="{{baseUrl}}/static/icon/ui/suo.png"></image>
+              </view> 
+              <view data-mediaid="{{item.mediaId}}" data-serile="{{index}}" bindtap="{{item.free == 0 ? 'doPrompt' : 'doPlay'}}" class="section-right">
+                <view class="section-title">{{index < 9 ? '0' : ''}}{{index + 1}}{{item.title}}</view>
+                <view class='section-note'>时长：{{item.length}}分钟</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <!-- [固定查看更多] -->
+        <view  class="scroll_H_item vertical-section">
+            <view class="vertical-wraper">
+              <view bindtap="downApp" class="section-right">
+                <view class="section-title down-app">查看更多</view>
+              </view>
+            </view>
+        </view>
+      </scroll-view>
+
+    </view>
+
+
+    <view class="weui-tab">
+      <view class="weui-navbar">
+          <block wx:for="{{tabs}}" wx:key="*this">
+              <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                  <view class="weui-navbar__title">{{item}}</view>
+              </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}rpx; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <view class="weui-tab__panel">
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+           <scroll-view wx:if="{{aboutImg.length > 0}}" scroll-y style="height: 100%;">
+            <image wx:for="{{aboutImg}}" wx:key="{{index}}" class='question' mode="widthFix" src="{{baseUrl}}{{item.src}}"></image>
+          </scroll-view>
+          <template wx:else is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <!-- 课程评论列表 -->
+          <scroll-view wx:if="{{commentArr.length > 0}}" scroll-y style="height: 100%;">
+            <comment-list listdata="{{commentArr}}"></comment-list>
+            <view style="height: 67px"></view>
+          </scroll-view>
+          <view wx:else class="no-comment">暂无评论</view>
+        </view>
+        
+      </view>
+    </view>
+    
+  </view>
+  
+  
+  <!-- 发表评论表单 -->
+  <view hidden="{{!showCommentForm}}" class="weui-cells weui-cells_after-title comment-form">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+              <input class="weui-input jx-input" value="{{commentValue}}" placeholder="说点什么......" bindinput="changeBlur" />
+              <button class="weui-btn jx-btn" bindtap="doComment">发送</button>
+          </view>
+      </view>
+  </view>
+</view>

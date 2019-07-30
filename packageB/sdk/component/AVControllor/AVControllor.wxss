@@ -1,0 +1,6 @@
+/* sdk/component/AVControllor/AVControllor.wxss */
+.tool-bar-icon {
+    width: 36px;
+    height: 36px;
+    margin-right: 8px;
+}

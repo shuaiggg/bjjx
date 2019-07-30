@@ -1,0 +1,10 @@
+<view hidden="{{!canApplySpeak}}">
+    <view class="wrapper {{wrapperClass}}"
+          hidden="{{status == statusConfig.SPEAKING}}">
+        <image bindtap="onHandupTap" class="image"
+               src="./image/bjl_ic_handup@3x.png"></image>
+    </view>
+    <image bindtap="onHandupEndTap" class="image"
+           hidden="{{status != statusConfig.SPEAKING}}"
+           src="./image/bjl_ic_handup_on@3x.png"></image>
+</view>

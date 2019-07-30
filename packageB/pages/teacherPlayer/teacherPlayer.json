@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "teacherPlayer": "../../sdk/component/teacherPlayer/teacherPlayer",
+    "whiteboard": "../../sdk/component/whiteboard/whiteboard",
+    "messageList": "../../sdk/component/messageList/messageList",
+    "messageSender": "../../sdk/component/messageSender/messageSender",
+    "header": "/pages/components/header/header"
+  },
+  "disableScroll": true
+}

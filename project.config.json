@@ -1,0 +1,73 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.0",
+	"appid": "wx94bb5e11e3730a1b",
+	"projectname": "jxjy",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "update",
+					"pathName": "pages/category/category",
+					"query": "",
+					"scene": 1014
+				},
+				{
+					"id": 1,
+					"name": "options",
+					"pathName": "pages/information/information",
+					"query": "liveCourseId=22&scene=3",
+					"scene": "1001"
+				},
+				{
+					"id": 2,
+					"name": "领取资料",
+					"pathName": "pages/receiveData/receiveData",
+					"query": "",
+					"scene": 1001
+				},
+				{
+					"id": -1,
+					"name": "播放",
+					"pathName": "pages/playback/playback",
+					"query": "id=51",
+					"scene": null
+				}
+			]
+		}
+	}
+}

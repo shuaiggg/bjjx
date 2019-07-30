@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "maskCover": "/sdk/component/maskCover/maskCover"
+  }
+}

@@ -1,0 +1,48 @@
+
+.right-slider-item {
+  float: left;
+  width: 50%;
+  text-align: center;
+  padding: inherit;
+  margin: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+}
+
+.right-slider-text {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10% 50rpx 10%;
+  width: 80%;
+  border-radius: 6rpx;
+  background: #f6f8f9;
+  line-height: 80rpx;
+  font-size: 30rpx;
+}
+
+.right-slider-icon {
+  width: 50rpx;
+  height: 50rpx;
+  vertical-align: text-top;
+}
+
+.major-box {
+  display: -webkit-flex;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.major-wrapper {
+  flex: 1;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.major-wrapper button {
+  flex-basis: 50%;
+}

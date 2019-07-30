@@ -1,0 +1,15 @@
+.notice-view {
+   height: 50px;
+}
+.content-title {
+   border-bottom: 1px solid #eee;
+}
+.content-main {
+   margin-top: 10px;
+   background: #eee;
+   padding: 10px;
+   padding-top: 0;
+}
+.content {
+   min-height: 100px;
+}

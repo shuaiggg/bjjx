@@ -1,0 +1,28 @@
+<image hidden="{{!(!status.audioOn)}}"
+       src="./image/bjl_ic_stopaudio_closed@3x.png"
+       class="tool-bar-icon" mode="scaleToFill"
+       data-name="micClose"
+       bindtap="toolbarTap"
+>
+</image>
+<image hidden="{{!(status.audioOn)}}"
+       src="./image/bjl_ic_stopaudio_6@3x.png"
+       class="tool-bar-icon" mode="scaleToFill"
+       data-name="micOpen"
+       bindtap="toolbarTap"
+>
+</image>
+<image hidden="{{!(!status.videoOn)}}"
+       src="./image/bjl_ic_stopvideo_closed@3x.png"
+       class="tool-bar-icon" mode="scaleToFill"
+       data-name="cameraClose"
+       bindtap="toolbarTap"
+>
+</image>
+<image hidden="{{!(status.videoOn)}}"
+       src="./image/bjl_ic_stopvideo_open@3x.png"
+       class="tool-bar-icon" mode="scaleToFill"
+       data-name="cameraOpen"
+       bindtap="toolbarTap"
+>
+</image>

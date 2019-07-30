@@ -1,0 +1,128 @@
+.pay-way-wrapper{
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto 26rpx auto;
+  padding: 0 26rpx;
+  width: 90vw;
+  border: 1rpx solid #f5f5f5;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background: #fff;
+  /* box-shadow: 0 0 3px 2px rgba(0,0,0,0.018); */
+}
+.pay-way-bg{
+  margin: 26rpx auto 0 auto;
+  width: 90vw;
+  z-index: 10;
+  border: 1rpx solid #f5f5f5;
+  border-bottom: none;
+   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.pay-way-bg>image{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10rpx 10rpx 0 0;
+}
+.pay-way-title{
+  flex: 1;
+  height: 158rpx;
+  line-height: 158rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.pay-way-btn{
+  flex-basis: 157rpx;
+  font-size: 25rpx;
+  color: #fff;
+  border-radius: 54rpx;
+  line-height: 54rpx;
+  height: 54rpx;
+  text-align: center;
+  background: linear-gradient(left top,#fd9467 #fb8277);
+  background: -webkit-linear-gradient(left top,#fd9467, #fb8277);
+  box-shadow: 0 0 10px 5px rgba(251,130,119,0.2);
+}
+.pay-way-qcode{
+  flex-basis: 25%;
+  margin-left: 5%;
+}
+
+.tips-content{
+  position: relative;
+  width:86%;
+  height:800rpx;
+  background:#fff;
+  border-radius: 10rpx;
+}
+.copy-box{
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30rpx auto 0 auto;
+  padding: 0 5% 30rpx 5%;
+  border-bottom: 10rpx solid #fff1f1;
+  width: 90%;
+  color: #333;
+  font-size: 28rpx;
+}
+.copy-box:nth-of-type(4) {
+  border-bottom: none;
+}
+.copy-text{
+  flex: 1;
+}
+.copy-btn{
+  flex-basis: 100rpx;
+  line-height: 50rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background: #f28540;
+  text-align: center;
+  font-size: 28rpx
+}
+.close-copy{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: 10rpx solid #fff1f1;
+  width: 100%;
+  height: 80rpx;
+  text-align: center;
+  color: #999;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.copy-hd{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  background: #f69a60;
+  border-radius: 10rpx 10rpx 0 0;
+}
+.copy-msg{
+  margin-top: 40rpx;
+  color: #e86f21;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+.no-border{
+  padding: 0 28rpx;
+  border-top: none;
+  border-top-left-radius: 0; 
+  border-top-right-radius: 0;
+}
+.title-msg{
+  display: inline-block;
+  margin-left: 15rpx;
+  color: red;
+  font-size: 28rpx;
+  font-weight: normal;
+}

@@ -1,0 +1,34 @@
+<header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+
+<view style='background: #fffcfb'>
+  <view class="pay-way-bg">
+    <image mode='widthFix' src='https://wx.jianxuejy.net/static/icon/pay_way/pay_way_bg.jpg'></image>
+  </view>
+  <block wx:for="{{payWay}}" wx:key="{{index}}">
+    <view class="pay-way-wrapper {{index === 0 ? 'no-border' : ''}}">
+      <view class="pay-way-title">{{item.pawTitle}}<view class='title-msg' wx:if="{{item.pawTitle === '民生银行'}}">(需下载APP)</view></view>
+      <view 
+        bindtap='previewImage' 
+        data-qcode="{{item.payQcode}}" 
+        data-index="{{index}}" 
+        class="pay-way-btn">点击查看</view>
+    </view>
+  </block>
+</view>
+
+<view class="ley-tips {{isShow ? 'fade-in' : ''}}">
+    <view class="tips-content">
+      <view class="copy-hd">—— 银行转账 ——</view>
+      <block wx:for="{{copyList}}" wx:key="{{index}}">
+        <view class="copy-box">
+          <view class='copy-text'>
+            <view style='font-weight: bold;'>{{item.title}}：</view>
+            <view>{{item.content}}</view>
+          </view>
+          <view class="copy-btn" bindtap='doCopy' data-index="{{index}}">复制</view>
+        </view>
+      </block>
+      <view class="copy-msg">[点击复制即可粘贴]</view>
+      <view bindtap='closeCopr' class="close-copy">关闭</view>
+    </view>
+</view>

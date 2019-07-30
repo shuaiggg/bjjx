@@ -1,0 +1,1 @@
+"use strict";exports.LABEL_LOTTERY_ABOVE="以上",exports.LABEL_LOTTERY_GOT="人获得：",exports.LABEL_LOTTERY_NOBODY_GOT="无人中奖，奖品：",exports.LABEL_LOTTERY_NO_RECORD="暂无中奖记录",exports.LOTTERY_COMMAND_CORRECT="口令正确";

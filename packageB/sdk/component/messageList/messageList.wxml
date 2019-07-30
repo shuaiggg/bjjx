@@ -1,0 +1,88 @@
+<!--common/component/messageList/messageList.wxml-->
+
+<template name="emoji">
+    <view class="{{user.roleName}}" style="color:{{fromColor}}">
+        {{user.name}}
+    </view>
+    <view wx:if="{{url}}">
+        <image src="{{url}}" style="width: 32px;height: 32px"
+               mode="scaleToFill">
+        </image>
+    </view>
+    <view wx:if="{{!url}}">
+        不支持的表情
+    </view>
+</template>
+
+<template name="image">
+    <view class="{{user.roleName}}" style="color:{{fromColor}}">
+        {{user.name}}
+    </view>
+    <view>
+        <image src="{{url}}" bindtap="imageTap"
+               data-src="{{url}}"
+               data-width="{{width}}"
+               data-height="{{height}}"
+               mode='widthFix'
+               style="width:100px;">
+        </image>
+    </view>
+</template>
+
+<template name="text">
+    <view>
+        <view class="{{user.roleName}} username" style="color:{{fromColor}}">
+            {{user.name}}
+        </view>
+        <text>{{content}}</text>
+    </view>
+</template>
+
+<template name="link">
+    <view>
+        <view class="{{user.roleName}} username" style="color:{{fromColor}}">
+            {{user.name}}
+        </view>
+        <navigator url="/page/window/window?url={{link}}"
+                   hover-class="navigator-hover">
+            {{content}}
+        </navigator>
+    </view>
+</template>
+
+<view class="message-list">
+    <view wx:for="{{data}}" wx:key="{{index}}">
+        <view key="{{item.number}}"
+              style="background:{{styleInfo.messageBackground}}"
+              class="bjy-message-item" data-role="{{item.user.role}}">
+            <view class="bjy-viewider" wx:if="{{item.needDivider}}">
+                   <span>
+                         {{formatTime(item.time)}}
+                   </span>
+            </view>
+            <view>
+                <view class="bjy-custom-message" wx:if="{{item.custom}}">
+                    {{item.content}}
+                </view>
+                <view class="bjy-content"
+                      style="color:{{styleInfo.contentColor}}">
+                    <template is="{{item.type}}"
+                              data="{{...item}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='empty-image' hidden="{{data.length != 0}}">
+        <image mode="widthFix" style="width: 84px"
+               src="./img/message-list-empty-dark@2x.png"></image>
+    </view>
+</view>
+
+<cover-view class="image-mask-wrapper" bind:tap="onImageMaskTap"
+            hidden="{{!showImageMask}}">
+    <cover-view class="image-mask">
+    </cover-view>
+    <cover-image class="image-zoomed" src="{{zoomImage.url}}"
+                 style="width:{{zoomImage.width}}px;height: {{zoomImage.height}}px">
+    </cover-image>
+</cover-view>

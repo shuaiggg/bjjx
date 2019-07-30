@@ -1,0 +1,11 @@
+<!--pages/components/header.wxml-->
+
+<view class='my-naviga' style="height:{{navigaHeight}}px;padding-top: {{statusBarHeight}}px">
+  <view class="my-naviga-title" style="height:{{navigaHeight - statusBarHeight}}px;">
+    <view wx:if="{{isShow}}" catchtap='back' class="my-naviga-icon"></view> 
+    <view class='my-naviga-text'>{{title}}
+      <view wx:if="{{rotate}}" class='sanjiao {{isRotate ? "rotate-in" : "rotate-out"}}'></view>
+    </view>
+  </view>
+</view>
+<view style="height:{{navigaHeight}}px;" class='placeholder-box' wx:if="{{isPlaceholder}}"></view> 

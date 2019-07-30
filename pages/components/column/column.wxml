@@ -1,0 +1,11 @@
+<!-- 分割栏目条 -->
+<view class='fenge-box'>
+  <view class="weui-flex">
+      <view class='weui-flex__item'>
+        <image class="fenge-icon" wx:if="{{icon !== ''}}" src="{{icon}}"></image>
+        <view class=" fenge-title">{{title}}</view>
+      </view>
+      <!-- <navigator wx:if="{{url !== ''}}" hover-class="none" url="{{url}}" class="weui-flex__item fenge-more">更多</navigator> -->
+      <slot name="gourl"></slot>
+  </view>
+</view>

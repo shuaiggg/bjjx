@@ -1,0 +1,1 @@
+define(function(require,exports,module){"use strict";exports.MESSAGE_LIST_CLEAR="message_list_clear"});

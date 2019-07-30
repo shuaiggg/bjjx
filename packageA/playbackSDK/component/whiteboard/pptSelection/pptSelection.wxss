@@ -1,0 +1,34 @@
+.ppt-scroll-wrapper {
+    text-align: left;
+    height: 64px;
+    white-space: nowrap;
+}
+
+.image-wrapper {
+    display: inline-block;
+    position: relative;
+    height: 60px;
+    margin-right: 10px;
+}
+.isIphoneX .image-wrapper {
+    margin-bottom: 20px;
+}
+.ppt-scroll-wrapper {
+    height: 84px;
+}
+.image-wrapper:last-child {
+    margin-right: 0px;
+}
+
+.image-wrapper.active {
+    border: 2px solid #71b5f1;
+}
+
+.page-num {
+    position: absolute;
+    opacity: 0.5;
+    background: #666;
+    padding: 1px 3px;
+    bottom: 0px;
+    right: 0px;
+}

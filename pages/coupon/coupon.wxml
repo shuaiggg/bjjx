@@ -1,0 +1,51 @@
+
+<import src="../common/prompt/prompt.wxml"/>
+
+<view class="page">
+  <header title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+
+  <view class="weui-cells weui-cells_after-title jx-position" wx:if="{{couponType === 'myCoupon'}}">
+      <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+              <input class="weui-input jx-input" placeholder="请输入兑换码" bindconfirm="doSearch" confirm-type="search" bindblur="changeBlur" bindinput="aa" />
+              <button class="weui-btn jx-btn" bindtap="coupon">立即兑换</button>
+          </view>
+      </view>
+  </view>
+  <wux-refresher  wx:if="{{radioItems.length > 0}}" id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh">
+    <view class="page__bd">
+      <view class="weui-cells__title">{{couponType ==='myCoupon' ? '全部优惠券': '可用优惠券'}}</view>
+        <view class='trial-lesson' wx:if="{{couponType === 'myCoupon'}}">
+          <block wx:for="{{radioItems}}" wx:key="{{index}}">
+            <view class="weui-panel">
+                <view class="weui-panel__bd">
+                    <view class="weui-media-box weui-media-box_text">
+                        <image style='width:100%;height:100%;' src="{{baseUrl}}{{item.img}}" mode="widthFix"></image>
+                       <span class="weui-icon-checked jx-checked"></span> 
+                    </view>
+                </view>
+            </view>
+          </block>
+        </view>
+
+        <radio-group bindchange="radioChange" wx:else>
+            <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="{{index}}">
+                <radio class="weui-check" value="{{item.id}}" checked="{{item.checked}}"/>
+
+                <view class="weui-cell__bd">
+                  <image style='width:100%;height:100%;' src="{{baseUrl}}{{item.img}}" mode="widthFix"></image>
+                </view>
+                <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+                    <icon class="weui-icon-radio" type="success_no_circle" size="16" color="orange"></icon>
+                </view>
+            </label>
+        </radio-group>
+        <view style='height:56rpx;'></view>
+    </view>   
+  </wux-refresher>
+  <view class='no-data' wx:else>
+      <template is="prompt" data="{{ ...$wux.prompt.msg1 }}"/>
+  </view>
+  <!-- 按钮 -->
+  <view class='payFor' bindtap='goBack' wx:if="{{useBtn == 'selectCoupon'}}">立即使用</view>
+</view>

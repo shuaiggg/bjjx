@@ -1,0 +1,8 @@
+<view class="page">
+  <header id="header" title="{{header.title}}" isShow="{{header.iconShow}}"></header>
+  <view class="faq-box">
+    <image mode='widthFix' class='question' src='https://wx.jianxuejy.net/static/banner/q_a.jpg'></image>
+  </view>
+  <!-- 联系我们 -->
+  <view class="contact-us" bindtap="contactUs">联系我们</view>
+</view>

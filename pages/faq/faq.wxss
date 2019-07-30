@@ -1,0 +1,23 @@
+image{
+  width: 100%;
+  height:auto;
+}
+.faq-box{
+  width: 100vw;
+  height: 100vh;
+}
+.contact-us{
+  position: fixed;
+  left: 50%;
+  bottom: 10%;
+  margin-left: -100rpx;
+  width: 200rpx;
+  background: #f26e1b;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  border-radius: 60rpx;
+  z-index: 10;
+  text-align: center;
+}

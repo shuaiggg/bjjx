@@ -1,0 +1,56 @@
+<wxs module="formatDate" src="./../../filter/formatDate.wxs"></wxs>
+
+<view class="question-answer" bindtouchmove="onTouchMove">
+    <scroll-view class="scroll-list"
+                 scroll-y="true"
+                 scroll-top="{{scrollTop}}"
+                 bindscroll="onScroll"
+                 bindtouchstart="onTouchStart"
+                 bindtouchcancel="onTouchCancel"
+                 bindtouchend="onTouchEnd">
+        <view class="item-group {{selfNumber === outerItem.itemList[0].from.number ? 'self' : ''}}"
+              wx:for="{{questionList}}"
+              wx:for-item="outerItem"
+              wx:for-index="outerIndex"
+              wx:key="id">
+            <view class="single-item {{innerIndex === 0 ? 'item-question' : 'item-answer'}}"
+                  wx:for="{{outerItem.itemList}}"
+                  wx:for-item="innerItem"
+                  wx:for-index="innerIndex"
+                  wx:key="time">
+                <view class="header">
+                    <view class="item-icon" wx:if="{{innerIndex === 0}}">Q</view>
+                    <view class="item-icon" wx:else>A</view>
+                    <view class="user-name">{{innerItem.from.name}}</view>
+                    <view class="timestamp">{{formatDate.getTime(innerItem.time * 1000, false)}}</view>
+                </view>
+                {{innerItem.content}}
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class="page-info">
+        {{pageCurrent}}/{{pageTotal}}页
+    </view>
+
+    <view class="input-length-info">
+        {{inputLength}}/{{inputMaxLength}}
+    </view>
+
+    <view class="input-field">
+
+        <view wx:if="{{isForbidden}}" class="forbidden-info">
+            {{language.LABEL_FORBIDDEN}}
+        </view>
+
+        <input wx:else
+               class="input-box"
+               confirm-type='send'
+               bindinput="onInput"
+               maxlength="{{inputMaxLength}}"
+               value="{{inputValue}}"
+               bindconfirm="sendQuestion"
+               placeholder="{{language.INPUT_FIELD_PLACEHOLDER}}">
+        </input>
+    </view>
+</view>

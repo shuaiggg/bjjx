@@ -1,0 +1,1 @@
+var store=require("../store");module.exports.getLanguage=function(e){return store.get("isLive")?e.chineseLive:e.chineseClassroom};

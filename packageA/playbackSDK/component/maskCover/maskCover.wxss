@@ -1,0 +1,20 @@
+/* common/component/maskCover/maskCover.wxss */
+.mask {
+    position: fixed;
+    opacity: 0.5;
+    z-index: 10;
+    top: 0px;
+    bottom: 50px;
+    left: 0px;
+    right: 0px;
+}
+.content {
+    z-index:15;
+    position:fixed;
+    bottom:0px;
+    background:white;
+    left:0;
+    padding:10px;
+    right:0;
+}
+

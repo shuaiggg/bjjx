@@ -1,0 +1,14 @@
+<!--sdk/component/dialog/dialog.wxml-->
+<!-- dialog本身不控制显隐，需在被引用的wxml中控制 -->
+<cover-view class='dialog-mask' bindtap='maskClick'></cover-view>
+<cover-view class='bjy-dialog-view'>
+  <cover-view wx:if='{{showTitle && title}}' class='dialog-title'>{{title || ''}}</cover-view>
+  <cover-view class='dialog-body' style='{{contentStyle}}'>
+    <slot></slot>
+    {{content || ''}}
+  </cover-view>
+  <cover-view class='dialog-footer'>
+    <button class='dialog-btn confirm-btn' bindtap='confirm'>{{confirmBtnText}}</button>
+    <button wx:if='{{showCancelBtn}}' class='dialog-btn cancel-btn' bindtap='cancel'>{{cancelBtnText}}</button>
+  </cover-view>
+</cover-view>

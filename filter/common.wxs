@@ -1,0 +1,23 @@
+var myFilter = {
+  mySlice: function (temArr, start, end) {
+    return temArr.slice(start, end);
+  },
+  formStr: function (x, y) {
+    var temStr = ''
+    if (y == '0') {
+      temStr = '免费'
+    } else {
+      if (x == true && y != '0') {
+        temStr = '专享'
+      } else {
+        temStr = '￥' + y
+      }
+    }
+    return temStr
+  }
+}
+
+module.exports = {
+  filter: myFilter
+}
+

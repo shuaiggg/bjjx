@@ -1,0 +1,132 @@
+/* sdk/component/lottery/lottery.wxss */
+
+.bjy-lottery-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.bjy-mask-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bjy-lottery-container {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 330px;
+  max-height: 90vh;
+  padding: 60px 30px 0;
+  border-radius: 8px;
+}
+
+.bjy-lottery-close {
+  position: absolute;
+  top: 0;
+  right: 27px;
+  width: 24px;
+  height: 24px;
+}
+
+.bjy-lottery-head-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 330px;
+  height: 72px;
+}
+
+/* 基础库 1.9.90 起 cover-view 支持 overflow: scroll，但不支持动态更新 overflow */
+
+.bjy-lottery-body {
+  box-sizing: border-box;
+  max-height: 336px;
+  background-origin: border-box;
+  background-color: #fff;
+  overflow: scroll;
+}
+
+.bjy-column-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+.bjy-lottery-item {
+  display: block;
+  max-width: 100%;
+  padding: 0 10px;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  color: #4a4a4a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+.bjy-lottery-footer {
+  position: relative;
+  height: 24px;
+}
+
+.footer-text {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  white-space: nowrap;
+  color: #fff;
+  border-radius: 8px;
+  background-color: #f44336;
+}
+
+.border-fix {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  z-index: -1;
+  background-color: #f44336;
+}
+
+.bjy-lottery-box-canvas {
+  position: fixed;
+  left: 10px;
+  bottom: 60px;
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+}
+
+.bjy-lottery-box-image {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,30 @@
+/* common/component/messageSend/messageSend.wxss */
+.bjy-message-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row;
+    align-items: center;
+}
+.emotion-icon {
+    width: 24px;
+    height: 24px;
+    margin:auto 10px;
+}
+.bjy-message-sender {
+    background: #ddd;
+    padding: 3px;
+}
+input, textarea{
+    background: white;
+    flex: 1;
+    height: 40px;
+    padding: 2px;
+    margin-left: 5px;
+}
+.bjy-emoji-layer {
+    background: #eee;
+}
+
+.bjy-placeholder-error {
+  color: #ff0000;
+}

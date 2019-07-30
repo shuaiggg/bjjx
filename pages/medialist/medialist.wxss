@@ -1,0 +1,5 @@
+/* pages/medialist/medialist.wxss */
+.handle{position: absolute;bottom:76rpx;height: 44rpx;line-height: 44rpx;padding: 0 20rpx;font-size: 22rpx;color: #fff;border-radius: 12rpx;text-align: center;}
+.reserved{right:10px;background: #666666;}
+.reserve{right:10px;background: #f26e1b;}
+.playback{right:10px;background: #1ba9f3;}

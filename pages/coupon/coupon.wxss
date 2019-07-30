@@ -1,0 +1,12 @@
+/* pages/coupon/coupon.wxss */
+page, .page{height: 100%;}
+.techer-img{width: 36rpx;height: 36rpx;}
+
+.jx-position{position: relative;padding: 20rpx 0;background: #fff;z-index: 100;}
+.jx-checked{position: absolute;right: 0;top: 0;}
+
+.payFor{position: fixed;right: 0;bottom:0;width:100%;border-radius: 0;
+background: #f79649;margin: 0;color: #fff;border:none;text-align: center;line-height: 92rpx;}
+
+.no-data{height:70%;}
+

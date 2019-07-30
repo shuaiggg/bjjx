@@ -1,0 +1,1 @@
+function toChannel(n){return n||""}module.exports=function(n,t){return(n=toChannel(n))===toChannel(t)||("chat"===n&&!t||(!n&&"chat"===t||void 0))};

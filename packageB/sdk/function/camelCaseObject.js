@@ -1,0 +1,1 @@
+var camelCase=require("./camelCase"),$=require("../jquery");function camelCaseObject(e){var r=$.isArray(e)?[]:{};return $.each(e,function(e,a){($.isPlainObject(a)||$.isArray(a))&&(a=camelCaseObject(a)),r[camelCase(e)]=a}),r}module.exports=camelCaseObject;

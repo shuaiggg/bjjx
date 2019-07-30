@@ -1,0 +1,14 @@
+/* pages/information/information.wxss */
+.get-phone{position: relative;}
+.phone-btn{position: absolute;right:10px;top: 14rpx;padding: 10rpx 16rpx;
+background: #f26e1b;font-size: 30rpx;color: #fff;border-radius: 10rpx;}
+.user-msg-btn{
+  width: 90%;
+  margin: 40rpx auto 0 auto;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #f26e1b;
+  color: #fff;
+  border-radius: 10rpx;
+  text-align: center;
+}

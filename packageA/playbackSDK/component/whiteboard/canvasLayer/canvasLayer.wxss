@@ -1,0 +1,50 @@
+/* common/component/whiteboard/canvasLayer/canvasLayer.wxss */
+.doc-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.canvas {
+}
+.laser {
+    width: 5px;
+    height: 5px;
+    background: red;
+    position: absolute;
+    border-radius: 10px;
+    z-index: 3;
+    opacity: 0.5;
+}
+.whiteboard-mask {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+}
+
+.page-icon {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+}
+
+.page-prev {
+    top: 100px;
+    left: 10px;
+}
+
+.page-next {
+    top: 100px;
+    right: 10px;
+}
+.empty {
+    width: 3px;
+    display: inline-block;
+    height: 10px;
+}

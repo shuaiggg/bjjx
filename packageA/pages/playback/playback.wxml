@@ -1,0 +1,86 @@
+<!--pages/playback/playback.wxml-->
+<view hidden="{{isWhiteboardFullScreen}}">
+  <header 
+    id="header" 
+    title="{{header.title}}" 
+    isShow="{{header.iconShow}}" 
+    isPlaceholder="{{header.isPlaceholder}}">
+  </header>
+</view>
+
+<loading 
+  wx:if="{{!closeLoading}}" 
+  class="loading-wrapper" 
+  logoSrc='{{logoSrc}}' 
+  styleInfo="{{loadingStyleInfo}}" 
+  bind:loadingReady="loadingReady" 
+  bind:loadEnded="loadEnded">
+</loading>
+
+<cover-view wx:if='{{!isConnected}}' class='offline-view'>断网了哦~</cover-view>
+
+<view class="bjy-playback-view {{isWhiteboardFullScreen ? 'whiteboard-fullscreen-view' : ''}}">
+  <view style="height: {{navigaHeight}}px"></view>
+  <!-- 断网监听（额外功能） -->
+
+  <!-- 原生视频播放组件-->
+  <video 
+    id='mainVideo' 
+    class="{{isLoading ? 'video-minify': ''}}" 
+    custom-cache='{{false}}' 
+    src='{{currentVideoURL}}' 
+    bindplay='onVideoPlay' 
+    bindpause='onVideoPause' 
+    bindtimeupdate='onVideoTimeUpdate'
+    bindended='onVideoEnded' 
+    bindwaiting='onVideoWaiting' 
+    binderror='onVideoError' 
+    bindfullscreenchange='onFullScreenChange'>
+  </video>
+
+  <!-- 播放速度和分辨率调整区（额外功能，不需要可删除） -->
+  <view wx:if='{{!isWhiteboardFullScreen}}' class='video-controller'>
+    <view class='rate-controller'>
+      <picker bindchange="changeRate" value="{{rateArrIndex}}" range="{{rateArr}}">
+        <view class="picker">
+          播放速度：{{rateArr[rateArrIndex]}}x
+        </view>
+      </picker>
+    </view>
+    <view class='resolution-controller'>
+      <picker bindchange="changeResolution" value="{{resolutionIndex}}" range="{{resolutionTextArr}}">
+        <view class="picker">
+          分辨率：{{currentResolutionText}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 白板及聊天区 -->
+  <view class="tab-container">
+    <view wx:if='{{!isWhiteboardFullScreen}}' class='tab-header'>
+      <text class="tab-btn {{tabIndex === 0 ? 'tab-btn-active' : ''}}" data-index='0' bindtap='changeTab'>聊天</text>
+      <text class="tab-btn {{tabIndex === 1 ? 'tab-btn-active ' : ''}}" data-index='1' bindtap='changeTab'>白板</text>
+    </view>
+
+    <view class="tab-content {{tabIndex === 1 ? 'tab-content-whiteboard' : 'tab-content-message'}}">
+      <!-- 引入的聊天组件 -->
+      <messageList class='message-list-container' styleInfo='{{messageListStyleInfo}}'></messageList>
+      <!-- 引入的白板组件 -->
+      <whiteboard 
+        id="whiteboard" 
+        class="whiteboard {{isWhiteboardFullScreen ? 'rotate-screen' : ''}}" 
+        styleInfo="{{whiteboardStyleInfo}}">
+      </whiteboard>
+      <!-- 控制白板全屏的按钮（额外功能） -->
+      <cover-view 
+        wx:if='{{tabIndex === 1 && !isVideoFullScreen}}' 
+        class='fullscreen-btn' 
+        bindtap='toggleWhiteboardFullScreen'>
+        <cover-image wx:if='{{isWhiteboardFullScreen}}' class="img" src="./img/whiteboard-shrink.png" />
+        <cover-image wx:else class="img" src="./img/whiteboard-expand.png" />
+      </cover-view>
+
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "loading": "/sdk/component/loading/loading"
+  },
+  "disableScroll": true
+}

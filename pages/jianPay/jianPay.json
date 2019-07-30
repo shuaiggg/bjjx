@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "简支付",
+  "usingComponents": {
+    "header": "../components/header/header"
+  }
+}

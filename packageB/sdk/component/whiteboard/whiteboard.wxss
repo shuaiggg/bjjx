@@ -1,0 +1,95 @@
+/* common/component/whiteboard/whiteboard.wxss */
+.whiteboard {
+    position: relative;
+}
+
+.whiteboard-wrapper {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.whiteboard-mask {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
+}
+.page-count {
+    background: #C2C0C1;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    min-width: 40px;
+    line-height: 30px;
+    padding: 3px;
+    opacity: 0.5;
+    position: absolute;
+    bottom: 10px;
+    z-index: 10;
+    display: block;
+    text-align: center;
+}
+
+.clear {
+    position: absolute;
+    height: 20px;
+    bottom: 10px;
+    left: 10px;
+    background: black;
+    opacity: 0.5;
+    display: flex;
+    color: white;
+    font-size: 12px;
+    padding: 3px;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 12;
+}
+
+.clear-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.page-icon {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+}
+
+.page-prev {
+    top: 100px;
+    left: 10px;
+}
+
+.page-next {
+    top: 100px;
+    right: 10px;
+}
+.clear {
+    position: absolute;
+    height: 20px;
+    bottom: 10px;
+    left: 10px;
+    background: black;
+    opacity: 0.5;
+    display: flex;
+    color: white;
+    font-size: 12px;
+    padding: 3px;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 12;
+}
+
+.clear-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
